@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitae - Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../portfolio-variants.css" />
+</head>
+<body class="detail-page">
+  <main class="detail-shell">
+    <nav class="detail-nav">
+      <a class="back-link" href="../index.html#work">← Back</a>
+    </nav>
+
+    <header class="detail-header">
+      <div class="detail-label">Vitae · healthcare PWA</div>
+      <h1 class="detail-title">Helping families make sense of medical documents with AI</h1>
+      <p class="detail-copy">Vitae is a PWA where users upload prescriptions or lab reports, AI structures the contents, and the product asks the user to review before anything becomes permanent. The product challenge is not just extraction accuracy. It is designing trust into every handoff.</p>
+      <div class="detail-meta">
+        <span class="tag tag-accent">Section 2 owner</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">OpenRouter / Gemini</span>
+        <span class="tag">Supabase</span>
+      </div>
+    </header>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <section class="detail-panel">
+          <div class="detail-label">What I built</div>
+          <h2 class="detail-subtitle">The upload, processing, and review flow</h2>
+          <p class="detail-copy">I owned the section where a user picks a document, the system classifies it, extracts the structure, exposes low-confidence fields, and only then moves toward saving. That meant solving both UI clarity and AI pipeline reliability together.</p>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">Why it matters</div>
+          <h2 class="detail-subtitle">AI is useful here only if the product stays honest about uncertainty</h2>
+          <ul class="detail-list">
+            <li>Classify first, then extract, so the wrong schema is never forced onto the wrong document.</li>
+            <li>Show confidence as part of the UI, not a hidden model artifact.</li>
+            <li>Delay auth until after the user sees value, then carry state safely through the handoff.</li>
+          </ul>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">What it taught me</div>
+          <h2 class="detail-subtitle">Trust design is the real product layer</h2>
+          <p class="detail-copy">The most interesting decisions were not model choices. They were about when to trust AI, when to interrupt the user, what data should be editable, and how to avoid implying certainty where the user cannot actually verify a field from memory.</p>
+        </section>
+      </div>
+
+      <aside class="detail-side">
+        <div class="side-block">
+          <div class="link-label">Project link</div>
+          <h3 class="side-title">Available now</h3>
+          <div class="detail-links">
+            <a class="button-primary" href="https://github.com/aashikvilla/health-assistant" target="_blank" rel="noopener">Open GitHub repo</a>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Build signals</div>
+          <p class="note">Supports prescriptions and lab reports, includes dev mode for demos, and was extended through multiple sessions rather than treated as a one-shot prototype.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

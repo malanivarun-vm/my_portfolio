@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumi - Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../portfolio-variants.css" />
+</head>
+<body class="detail-page">
+  <main class="detail-shell">
+    <nav class="detail-nav">
+      <a class="back-link" href="../index.html#work">← Back</a>
+    </nav>
+
+    <header class="detail-header">
+      <div class="detail-label">Lumi · assessment app</div>
+      <h1 class="detail-title">A good reminder that product simplicity often hides systems complexity</h1>
+      <p class="detail-copy">Lumi is a personality and skill assessment app with Google login, results access, and a personalised dashboard. The visible product is clean. The harder part was making authentication actually work across server-rendered flows without silent failure.</p>
+      <div class="detail-meta">
+        <span class="tag tag-accent">In development</span>
+        <span class="tag">Google OAuth</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Supabase Auth</span>
+      </div>
+    </header>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <section class="detail-panel">
+          <div class="detail-label">What made it hard</div>
+          <h2 class="detail-subtitle">The dangerous bugs were the ones that looked like success</h2>
+          <p class="detail-copy">A helper built for one runtime context silently swallowed the cookie write needed for OAuth callback handling. The system looked healthy until the dashboard failed to recognize the session on the next request.</p>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">Key lessons</div>
+          <h2 class="detail-subtitle">This is a build about judgment, not just debugging</h2>
+          <ul class="detail-list">
+            <li>Always ask which runtime context a helper was actually designed for.</li>
+            <li>Missing values and wrong values are different failure modes; fallback logic only covers one of them.</li>
+            <li>When a bug chain gets long, the visible error is usually downstream from the real cause.</li>
+          </ul>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">Portfolio value</div>
+          <h2 class="detail-subtitle">Useful as a builder story, weaker than Vitae or Andiamo as a flagship</h2>
+          <p class="detail-copy">Lumi works best in the portfolio as evidence of technical judgment and debugging depth. It is less compelling as a core product story than the other two projects, but it adds texture to how I learn and build.</p>
+        </section>
+      </div>
+
+      <aside class="detail-side">
+        <div class="side-block">
+          <div class="link-label">Project link</div>
+          <h3 class="side-title">Not wired yet</h3>
+          <p class="note">The notes confirm a Vercel deployment exists, but the public URL has not been added cleanly enough to expose here yet. When you are ready, this block should carry the live link.</p>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Good use in portfolio</div>
+          <p class="note">Best presented as a “what building taught me” project, not as the main product proof item.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

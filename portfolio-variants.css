@@ -1,0 +1,446 @@
+:root {
+  --ink: oklch(14% 0.008 85);
+  --ink-mid: oklch(38% 0.01 85);
+  --ink-muted: oklch(60% 0.01 85);
+  --accent: oklch(42% 0.16 280);
+  --accent-soft: oklch(95% 0.03 280);
+  --surface: oklch(97% 0.006 85);
+  --surface-strong: oklch(94% 0.012 85);
+  --border: oklch(86% 0.008 85 / 0.6);
+  --white: oklch(99% 0.004 85);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.page {
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-left,
+.hero-right {
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.hero-left {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-right {
+  background: var(--surface);
+}
+
+.hero-top {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero-logo,
+.section-kicker,
+.metric-label,
+.project-label,
+.detail-label,
+.link-label,
+.footer-note,
+.back-link {
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-logo,
+.section-kicker,
+.detail-label,
+.link-label,
+.footer-note,
+.back-link {
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+}
+
+.hero-photo {
+  width: 132px;
+  height: 160px;
+  border-radius: 0.45rem;
+  object-fit: cover;
+  object-position: center 12%;
+}
+
+.hero-main {
+  max-width: 38rem;
+  padding: clamp(2rem, 8vh, 5rem) 0;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow-dot {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.eyebrow-text {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-headline,
+.section-title,
+.detail-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+.hero-headline {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  max-width: 10ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero-headline em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.hero-body,
+.section-body,
+.proof-copy,
+.project-summary,
+.detail-copy,
+.detail-list,
+.note {
+  color: var(--ink-mid);
+  line-height: 1.75;
+}
+
+.hero-body,
+.section-body,
+.detail-copy {
+  font-size: 1rem;
+}
+
+.hero-actions,
+.detail-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: center;
+}
+
+.button-primary,
+.button-secondary,
+.ghost-link,
+.project-card {
+  text-decoration: none;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.32rem;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.button-primary:hover {
+  background: var(--accent);
+}
+
+.button-secondary,
+.ghost-link,
+.back-link {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+  text-decoration: none;
+}
+
+.button-secondary,
+.ghost-link {
+  color: var(--ink-muted);
+}
+
+.section {
+  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-band {
+  background: linear-gradient(180deg, var(--surface) 0%, var(--white) 100%);
+}
+
+.section-grid,
+.detail-shell {
+  width: min(100%, 88rem);
+  margin: 0 auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: minmax(14rem, 19rem) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  margin-bottom: 0.9rem;
+  max-width: 12ch;
+}
+
+.section-body {
+  max-width: 25rem;
+}
+
+.proof-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.proof-card,
+.detail-panel {
+  padding: 1.1rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.proof-card:first-child,
+.detail-panel:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.metric-row {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+}
+
+.metric-value {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.metric-label,
+.project-label {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+}
+
+.proof-title,
+.project-title,
+.detail-subtitle {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.project-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.project-card:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent);
+}
+
+.project-topline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.42rem 0.72rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink-mid);
+  font-size: 0.76rem;
+  line-height: 1;
+}
+
+.tag-accent {
+  background: var(--accent-soft);
+  border-color: oklch(42% 0.16 280 / 0.15);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.note {
+  font-size: 0.92rem;
+  max-width: 36rem;
+}
+
+.footer {
+  padding: 1.25rem clamp(1.25rem, 4vw, 3.5rem) 2rem;
+}
+
+.footer-note {
+  width: min(100%, 88rem);
+  margin: 0 auto;
+}
+
+.detail-page {
+  min-height: 100vh;
+}
+
+.detail-shell {
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.detail-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.detail-header {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 52rem;
+  margin-bottom: 3rem;
+}
+
+.detail-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  max-width: 11ch;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(16rem, 0.95fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.detail-main,
+.detail-side {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.detail-list {
+  padding-left: 1.1rem;
+}
+
+.detail-list li + li {
+  margin-top: 0.45rem;
+}
+
+.side-block {
+  padding: 1rem 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.side-block + .side-block {
+  margin-top: 1rem;
+}
+
+.side-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+@media (max-width: 920px) {
+  .hero,
+  .section-grid,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-headline,
+  .detail-title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-photo {
+    width: 96px;
+    height: 118px;
+  }
+}

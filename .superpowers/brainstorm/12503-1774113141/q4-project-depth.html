@@ -1,0 +1,57 @@
+<h2>How deep should each project go?</h2>
+<p class="subtitle">The projects need to show your thinking — problem → approach → outcome. The question is where and how.</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Expand in place</h3>
+      <p>Cards stay compact. Clicking "See how I approached this" expands the card inline to reveal the full thinking — problem, decisions, outcome, numbers. No separate pages.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Structured sections per project</h3>
+      <p>Each project card is longer on the main page — showing Problem / Approach / Outcome as distinct labelled sections. Everything visible without clicking. Richer, but takes more space.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Separate case study pages</h3>
+      <p>The main page shows a teaser card. Each project links to its own full-page case study with complete breakdown, context, and impact. Highest depth, most effort to write.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mockup" style="margin-top:32px">
+  <div class="mockup-header">Preview: What Option A looks like (collapsed vs expanded)</div>
+  <div class="mockup-body" style="display:flex;gap:20px;flex-wrap:wrap">
+    <div style="flex:1;min-width:220px;background:#f4f3ef;border-radius:12px;padding:20px;border:1px solid rgba(0,0,0,0.07)">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#3B4DD4;background:#ECEFFE;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:10px">SaaS</div>
+      <div style="font-weight:600;font-size:0.95rem;margin-bottom:6px">Enterprise Onboarding Overhaul</div>
+      <div style="font-size:0.82rem;color:#6B7280;line-height:1.6;margin-bottom:12px">Drove feature adoption to 85%, cut go-live timelines by 30%.</div>
+      <div style="font-size:0.78rem;color:#5B6CF0;font-weight:500;cursor:pointer">↓ See how I approached this</div>
+    </div>
+    <div style="flex:1;min-width:220px;background:#f4f3ef;border-radius:12px;padding:20px;border:1px solid rgba(91,108,240,0.2)">
+      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#3B4DD4;background:#ECEFFE;padding:2px 8px;border-radius:99px;display:inline-block;margin-bottom:10px">SaaS</div>
+      <div style="font-weight:600;font-size:0.95rem;margin-bottom:12px">Enterprise Onboarding Overhaul</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6B7280;margin-bottom:3px">The Problem</div>
+          <div style="font-size:0.82rem;color:#18181B;line-height:1.6">5 enterprise clients stalling at onboarding. Go-live was taking 2–3 months when it should take 2 weeks.</div>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6B7280;margin-bottom:3px">What I Did</div>
+          <div style="font-size:0.82rem;color:#18181B;line-height:1.6">Mapped every friction point, ran A/B tests on config flows, rebuilt the setup sequence end-to-end.</div>
+        </div>
+        <div>
+          <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#6B7280;margin-bottom:3px">Outcome</div>
+          <div style="font-size:0.82rem;color:#18181B;line-height:1.6"><strong>85% feature adoption · 30% faster go-live · 5 clients launched in 4 months</strong></div>
+        </div>
+      </div>
+      <div style="font-size:0.78rem;color:#5B6CF0;font-weight:500;cursor:pointer;margin-top:12px">↑ Collapse</div>
+    </div>
+  </div>
+</div>
