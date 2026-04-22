@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Varun Malani — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --ink: oklch(14% 0.008 85);
+    --ink-mid: oklch(38% 0.010 85);
+    --ink-muted: oklch(60% 0.010 85);
+    --accent: oklch(42% 0.160 280);
+    --accent-soft: oklch(95% 0.030 280);
+    --surface: oklch(97% 0.006 85);
+    --surface-strong: oklch(94% 0.012 85);
+    --border: oklch(86% 0.008 85 / 0.6);
+    --white: oklch(99% 0.004 85);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--white) 24rem);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .shell {
+    width: min(100%, 92rem);
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .back-link,
+  .eyebrow,
+  .section-kicker,
+  .meta-label,
+  .footer-note {
+    font-family: "Bricolage Grotesque", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    font-size: 0.72rem;
+  }
+
+  .back-link {
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding: clamp(2rem, 4vw, 3rem);
+    border: 1px solid var(--border);
+    border-radius: 1.4rem;
+    background: var(--white);
+    box-shadow: 0 20px 60px oklch(14% 0.01 85 / 0.05);
+    margin-bottom: 2rem;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .hero-title,
+  .section-title,
+  .role-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    max-width: 10ch;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+
+  .hero-body,
+  .section-body,
+  .role-body,
+  .meta-value,
+  .bullet-list,
+  .skill-chip,
+  .stat-note {
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  .hero-body,
+  .section-body,
+  .meta-value {
+    font-size: 0.98rem;
+  }
+
+  .hero-side {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .meta-card,
+  .side-card {
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--white) 100%);
+  }
+
+  .meta-card {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .meta-row {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .meta-value a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem 1.05rem;
+    border-radius: 1rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+    letter-spacing: -0.03em;
+    margin-bottom: 0.3rem;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.8fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .main-column,
+  .side-column {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .section-card {
+    padding: clamp(1.25rem, 3vw, 1.7rem);
+    border: 1px solid var(--border);
+    border-radius: 1.15rem;
+    background: var(--white);
+  }
+
+  .section-head {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: 1.35rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.55rem, 3vw, 2.3rem);
+    max-width: 13ch;
+  }
+
+  .experience-list {
+    display: grid;
+    gap: 1.4rem;
+  }
+
+  .experience-item + .experience-item {
+    border-top: 1px solid var(--border);
+    padding-top: 1.4rem;
+  }
+
+  .role-meta {
+    display: grid;
+    grid-template-columns: minmax(8rem, 10rem) minmax(0, 1fr);
+    gap: 1rem 1.25rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .role-date {
+    font-family: "Bricolage Grotesque", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+  }
+
+  .role-title {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .role-company {
+    color: var(--accent);
+    font-size: 0.92rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .bullet-list {
+    padding-left: 1.05rem;
+    font-size: 0.95rem;
+  }
+
+  .bullet-list li + li {
+    margin-top: 0.45rem;
+  }
+
+  .compact-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .compact-item + .compact-item {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .compact-title {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .skill-chip {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.48rem 0.78rem;
+    background: var(--surface);
+    font-size: 0.86rem;
+  }
+
+  .footer-note {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 920px) {
+    .hero,
+    .content-grid,
+    .role-meta,
+    .stats {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <div class="eyebrow">Resume</div>
+      <a class="back-link" href="index.html#work">← Back to portfolio</a>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Varun Malani</div>
+        <h1 class="hero-title">Mechanical Engineer turned Product Manager</h1>
+        <p class="hero-subtitle">Product, rollout, and adoption work across automotive, manufacturing, operations, and SaaS.</p>
+        <p class="hero-body">Product Manager with 8+ years of experience building and scaling SaaS products in ambiguous, execution-heavy environments. Strong focus on fixing broken user journeys, improving onboarding and activation, and driving adoption through data-informed decisions. Experienced in 0-1 product development, enterprise onboarding, and partnering closely with engineering, design, operations, and business teams to deliver measurable outcomes.</p>
+      </div>
+
+      <div class="hero-side">
+        <div class="meta-card">
+          <div class="meta-row">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Bangalore, India</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Email</div>
+            <div class="meta-value"><a href="mailto:malanivarun@gmail.com">malanivarun@gmail.com</a></div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">Phone</div>
+            <div class="meta-value"><a href="tel:+919538960097">+91 95389 60097</a></div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-label">LinkedIn</div>
+            <div class="meta-value"><a href="https://www.linkedin.com/in/varun-malani-330b16103/" target="_blank" rel="noopener">varun-malani-330b16103</a></div>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <div class="meta-label">What stands out</div>
+          <p class="meta-value">My path into product came through engineering, pricing, customer success, operations, and program leadership. That mix is why I tend to care as much about activation, rollout quality, and operating fit as I do about roadmap decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-value">85%</div>
+        <div class="stat-note">Feature adoption after UX and workflow improvements</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">30%</div>
+        <div class="stat-note">Reduction in go-live timelines by simplifying setup and removing bottlenecks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">50 Cr</div>
+        <div class="stat-note">Worker payouts processed with 99% accuracy and reliability at scale</div>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="main-column">
+        <section class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Experience</div>
+            <h2 class="section-title">Work that moved from operations into product</h2>
+          </div>
+
+          <div class="experience-list">
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Mar 2025 - Present</div>
+                <div>
+                  <h3 class="role-title">Product Manager</h3>
+                  <div class="role-company">Smartstaff · Bangalore, India</div>
+                  <p class="role-body">Owned product work on core workflows in a blue-collar staffing and workforce management SaaS business.</p>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Owned the roadmap for onboarding and configuration workflows to improve enterprise adoption.</li>
+                <li>Diagnosed UX and workflow friction, led wireframe changes and A/B testing, and increased feature adoption to 85%.</li>
+                <li>Led 0-1 onboarding of 5 enterprise clients with engineering and design to build scalable setup systems.</li>
+                <li>Reduced customer go-live timelines by 30% by simplifying flows and removing process bottlenecks.</li>
+                <li>Tracked adoption, usage, and time-to-value metrics to drive post-launch iteration.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Mar 2023 - Feb 2025</div>
+                <div>
+                  <h3 class="role-title">Program Manager</h3>
+                  <div class="role-company">Smartstaff · Bangalore, India</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Played a key role in strategic and product decisions while overseeing payout, compliance, and business finance functions.</li>
+                <li>Led cross-functional programs to improve adoption, delivery speed, and operational scalability across BizOps and Fulfillment.</li>
+                <li>Designed scalable solutions to improve LTV by 15% and reduce CAC by 10%.</li>
+                <li>Built financial simulation frameworks to model and optimize P&amp;L performance, improving CM1 by 3%.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Jul 2022 - Feb 2023</div>
+                <div>
+                  <h3 class="role-title">Manager, Central Operations</h3>
+                  <div class="role-company">Smartstaff · Bangalore, India</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Processed worker payouts of INR 50 Cr with 99% accuracy and reliability at scale.</li>
+                <li>Built and led a central ops team of 4 during its 0-1 phase.</li>
+                <li>Defined SOPs, KPIs, and product-led fixes to remove operational leaks and improve user experience, contributing to 5% margin growth.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Sep 2021 - Jun 2022</div>
+                <div>
+                  <h3 class="role-title">Assistant Manager / Specialist, Customer Success</h3>
+                  <div class="role-company">Smartstaff · Bangalore, Karnataka</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Managed end-to-end implementation for 35 B2B clients, driving adoption and retention in the product's early stage.</li>
+                <li>Won 3 major clients contributing 60% of subscription revenue.</li>
+                <li>Co-created PRDs for 3 major features by feeding structured user insight into roadmap planning.</li>
+                <li>Mentored specialists and established more customer-centric delivery practices.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">2020 - Aug 2021</div>
+                <div>
+                  <h3 class="role-title">Entrepreneur</h3>
+                  <div class="role-company">Gurpreet Enterprises · Bangalore, Karnataka</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Streamlined operations and vendor management, reducing costs by 4%.</li>
+                <li>Added 5 new clients and one new product line, keeping revenue growth at 10% YoY.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Apr 2018 - Sep 2018</div>
+                <div>
+                  <h3 class="role-title">Master Thesis Intern, Accessories Division</h3>
+                  <div class="role-company">Mazda Motor Europe GmbH · Cologne, Germany</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Supported accessories and pricing teams to identify revenue opportunities in the European automotive aftermarket.</li>
+                <li>Found an untapped 2M opportunity through market research and benchmarking.</li>
+                <li>Developed a tailored solution through cross-functional collaboration across regions.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Sep 2017 - Feb 2018</div>
+                <div>
+                  <h3 class="role-title">Intern, Pricing and Analysis</h3>
+                  <div class="role-company">Mazda Motor Europe GmbH · Cologne, Germany</div>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Improved aftermarket pricing for 400+ parts through benchmarking and value-based pricing.</li>
+                <li>Drove 12% revenue growth through price increase projects and competitive analysis across regional teams.</li>
+              </ul>
+            </article>
+
+            <article class="experience-item">
+              <div class="role-meta">
+                <div class="role-date">Jun 2014 - Jul 2016</div>
+                <div>
+                  <h3 class="role-title">Application Engineer</h3>
+                  <div class="role-company">Saint-Gobain Performance Plastics · Bangalore, Karnataka</div>
+                  <p class="role-body">Started in a techno-commercial role spanning design, product, pricing, and strategy for the automotive market.</p>
+                </div>
+              </div>
+              <ul class="bullet-list">
+                <li>Drove new segment breakthroughs and price revisions that contributed to 35% revenue growth and 120% of targets achieved YoY.</li>
+                <li>Strengthened OEM and Tier-1 relationships through timely RFI/RFQ proposals and technical-commercial feedback.</li>
+                <li>Coordinated across Asia, Europe, and North America to gather market intelligence and support new product launches.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Education</div>
+            <h2 class="section-title">Formal training across engineering and business</h2>
+          </div>
+
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="compact-title">Master's in Business Administration and Engineering</div>
+              <p class="meta-value">HTW Berlin · Berlin, Germany · Sep 2016 - Aug 2019</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Bachelor of Engineering, Mechanical</div>
+              <p class="meta-value">Visvesvaraya Technological University · Bangalore, Karnataka · Aug 2010 - May 2014</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Highlights</div>
+            <h2 class="section-title">Selected outcomes</h2>
+          </div>
+
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="compact-title">Profit Margin Transformation at Smartstaff</div>
+              <p class="meta-value">Improved contribution margin from -6% to +3% through policy and process optimization.</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">0-1 Client Onboarding</div>
+              <p class="meta-value">Onboarded 5 enterprise clients in 4 months during Smartstaff's SaaS relaunch.</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Revenue Growth at Saint-Gobain</div>
+              <p class="meta-value">Converted 5 large clients, adding 15% revenue growth locally and 5% globally.</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Revenue and Margin Enhancement at Mazda</div>
+              <p class="meta-value">Drove roughly 300K in revenue and margin lift through value-based pricing work.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Skills</div>
+            <h2 class="section-title">Working set</h2>
+          </div>
+          <div class="skill-row">
+            <span class="skill-chip">Product Strategy &amp; Roadmapping</span>
+            <span class="skill-chip">Growth &amp; Retention Analysis</span>
+            <span class="skill-chip">Cross-Functional Leadership</span>
+            <span class="skill-chip">Enterprise Onboarding</span>
+            <span class="skill-chip">SaaS Operations</span>
+            <span class="skill-chip">Mixpanel</span>
+            <span class="skill-chip">Metabase</span>
+            <span class="skill-chip">Looker Studio</span>
+            <span class="skill-chip">SQL Basics</span>
+            <span class="skill-chip">Freshdesk</span>
+            <span class="skill-chip">Google Suite</span>
+            <span class="skill-chip">Microsoft 365</span>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <div class="section-head">
+            <div class="section-kicker">Extra</div>
+            <h2 class="section-title">Certifications and interests</h2>
+          </div>
+          <div class="compact-list">
+            <div class="compact-item">
+              <div class="compact-title">Certification</div>
+              <p class="meta-value">Hybrid/Electric Vehicles and Renewable Energy, IIT-Madras · Score: 98/100</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Project work</div>
+              <p class="meta-value">Scenario planning for 2032 for US OEMs, and a strategic growth plan for augmented reality technology in industrial and commercial applications.</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Languages</div>
+              <p class="meta-value">English, Hindi, Kannada, German (beginner)</p>
+            </div>
+            <div class="compact-item">
+              <div class="compact-title">Interests</div>
+              <p class="meta-value">Astrophysics, Formula 1, badminton, travel, cars and driving.</p>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <div class="footer-note">Varun Malani · Resume page for portfolio</div>
+  </main>
+</body>
+</html>

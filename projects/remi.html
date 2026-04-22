@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Remi - Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../portfolio-variants.css" />
+</head>
+<body class="detail-page">
+  <main class="detail-shell">
+    <nav class="detail-nav">
+      <a class="back-link" href="../index.html#work">← Back</a>
+    </nav>
+
+    <header class="detail-header">
+      <div class="detail-label">Remi · founder CRM</div>
+      <h1 class="detail-title">A sales memory system for founders who do not have time to behave like a sales team</h1>
+      <p class="detail-copy">Remi is built for early-stage founders who run sales themselves and lose deal context because every existing CRM assumes someone will do the admin later. The product captures conversation context with minimal effort, uses AI to structure what matters, and surfaces that context when follow-up time comes.</p>
+      <div class="detail-meta">
+        <span class="tag tag-accent">Prototype live</span>
+        <span class="tag">Telegram bot</span>
+        <span class="tag">Claude API</span>
+        <span class="tag">Supabase</span>
+      </div>
+    </header>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <section class="detail-panel">
+          <div class="detail-label">Product thesis</div>
+          <h2 class="detail-subtitle">The problem is not weak CRM features. It is a wrong mental model.</h2>
+          <p class="detail-copy">Research with founders and CRM communities pointed to the same failure mode: people do not abandon CRMs because pipelines are missing fields. They abandon them because logging and maintaining context feels like extra work after the real work is already done. Remi is built around that insight.</p>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">What I built</div>
+          <h2 class="detail-subtitle">A lightweight capture flow that fits existing founder behaviour</h2>
+          <ul class="detail-list">
+            <li>Telegram bot capture flow for text, forwarded content, and quick post-call inputs.</li>
+            <li>AI extraction of contact, company, summary, deal signals, and next action.</li>
+            <li>Confirmation step before saving, so trust and control stay explicit.</li>
+            <li>Dashboard with pipeline view, context lookup, and linked Telegram authentication.</li>
+          </ul>
+        </section>
+
+        <section class="detail-panel">
+          <div class="detail-label">Why it matters</div>
+          <h2 class="detail-subtitle">The real value is remembered context, not one more pipeline tool</h2>
+          <p class="detail-copy">The strongest thing about Remi is the product judgment behind it. It does not ask founders to become more disciplined CRM users. It tries to meet them inside their current habits, reduce capture effort to seconds, and make follow-up context retrievable when it matters.</p>
+        </section>
+      </div>
+
+      <aside class="detail-side">
+        <div class="side-block">
+          <div class="link-label">Project links</div>
+          <h3 class="side-title">Live resources</h3>
+          <div class="detail-links">
+            <a class="button-primary" href="https://github.com/malanivarun-vm/Founder-CRM" target="_blank" rel="noopener">Open GitHub repo</a>
+            <a class="button-secondary" href="https://founder-crm-production.up.railway.app" target="_blank" rel="noopener">Open landing page</a>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Current state</div>
+          <p class="note">Prototype flow works end-to-end: capture through Telegram, AI extraction, confirmation, save to Supabase, and dashboard retrieval. The next phase is ambient capture through more native mobile surfaces.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

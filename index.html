@@ -302,7 +302,6 @@
 
   .pillar + .pillar,
   .timeline-item + .timeline-item,
-  .principle + .principle,
   .writing-item + .writing-item {
     border-top: 1px solid var(--border);
   }
@@ -428,7 +427,7 @@
 
   .project {
     display: grid;
-    grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
+    grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr);
     gap: 1.25rem 2rem;
     padding-top: 0.3rem;
   }
@@ -449,9 +448,23 @@
   }
 
   .project-meta {
+    align-self: start;
     font-size: 0.72rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.85rem;
+    background:
+      linear-gradient(180deg, oklch(99% 0.002 85) 0%, oklch(97.6% 0.01 278) 100%);
+    box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.85);
+  }
+
+  .project-meta strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.88rem;
+    color: var(--accent);
   }
 
   .project-main {
@@ -509,15 +522,28 @@
     max-width: 42rem;
   }
 
+  .career-link-row {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
   .principles {
     display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .principle {
     display: grid;
-    grid-template-columns: minmax(5rem, 6.5rem) minmax(0, 1fr);
-    gap: 1rem 1.5rem;
-    padding: 1.25rem 0;
+    grid-template-columns: auto 1fr;
+    gap: 0.95rem 1rem;
+    padding: 1.35rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--white) 100%);
   }
 
   .principle-title {
@@ -612,6 +638,10 @@
       grid-template-columns: 1fr;
     }
 
+    .principles {
+      grid-template-columns: 1fr;
+    }
+
     .hero {
       min-height: auto;
     }
@@ -685,9 +715,9 @@
         </h1>
 
         <p class="hero-body">
-          8 years across automotive, manufacturing, operations, and SaaS. Most recently at Smartstaff, I worked across roadmap, rollout, GTM, and customer adoption in a business where the hard part was never just shipping.
+          Mechanical Engineer turned PM, with 8+ years across automotive, manufacturing, operations, and SaaS. Most recently at Smartstaff, I worked across roadmap, rollout, GTM, and enterprise adoption in a business where the hard part was never just shipping.
           <br /><br />
-          I look for friction early, simplify messy journeys, and stay close to execution until the thing actually works. <strong>Lately, I also build with AI</strong> - not as a buzzword, but as infrastructure for faster thinking and shipping.
+          I am strongest where workflows are messy, teams are cross-functional, and adoption depends on getting the last mile right. <strong>Lately, I also build with AI</strong> - not as a buzzword, but as infrastructure for faster thinking, sharper product decisions, and faster shipping.
         </p>
 
         <div class="hero-cta">
@@ -727,18 +757,23 @@
         <div class="pillars">
           <div class="pillar">
             <div class="pillar-num">01</div>
-            <div class="pillar-title">Fixing Broken Journeys</div>
-            <p class="pillar-body">I go looking for friction before users complain about it. Onboarding, activation, configuration flows - the work that decides whether a product gets adopted or quietly avoided.</p>
+            <div class="pillar-title">Building From Zero</div>
+            <p class="pillar-body">I am comfortable when there is no playbook yet. New product motion, unclear ownership, greenfield workflows - that is usually where the real leverage is.</p>
           </div>
           <div class="pillar">
             <div class="pillar-num">02</div>
-            <div class="pillar-title">Building From Zero</div>
-            <p class="pillar-body">I am comfortable in the phase where there is no playbook yet. New rollout structures, new product motion, unclear ownership - that is usually where the real leverage is.</p>
+            <div class="pillar-title">Owning Across Functions</div>
+            <p class="pillar-body">I work well at the seams: product, ops, finance, design, engineering, and GTM. Not as a coordinator, but as someone willing to make tradeoffs visible and move the work forward.</p>
           </div>
           <div class="pillar">
             <div class="pillar-num">03</div>
-            <div class="pillar-title">Owning Across Functions</div>
-            <p class="pillar-body">I work well at the seams: product, ops, finance, design, engineering, and GTM. Not as a coordinator, but as someone willing to make the tradeoffs visible and move the work forward.</p>
+            <div class="pillar-title">Fixing Broken Journeys</div>
+            <p class="pillar-body">I go looking for friction before users complain about it. Onboarding, activation, configuration, and handoff flows - the work that decides whether a product gets adopted or quietly bypassed.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">04</div>
+            <div class="pillar-title">Driving Adoption In Complex Organisations</div>
+            <p class="pillar-body">I have spent much of my career in environments where software only matters if operations, customers, and internal teams can actually use it. That makes me biased toward rollout clarity, measurable adoption, and systems that hold up under scale.</p>
           </div>
         </div>
 
@@ -761,25 +796,26 @@
       <div class="section-head">
         <div class="section-kicker">Current Builds</div>
         <h2 class="section-title">What I am building now with AI</h2>
-        <p class="section-body">This section is less about resume proof and more about what I am actively building right now. The product management depth sits underneath it, but the focus here is on current work that shows how I think when I can move directly from problem to product.</p>
+        <p class="section-body">These are the products I am actively building right now. They matter because they show how I define the problem, where I use AI in the workflow, and what kind of product judgment I bring when I can move directly from problem to shipped system.</p>
       </div>
 
       <div class="work-list">
         <a class="project" href="projects/vitae.html">
-          <div class="project-meta">Vitae<br />Healthcare / Family records</div>
+          <div class="project-meta"><strong>Vitae</strong>Healthcare / Family records</div>
           <div class="project-main">
-            <h3 class="project-title">A medical document flow that treats trust as the real product problem</h3>
-            <p class="project-summary">Vitae helps families upload prescriptions and lab reports, have AI structure them, and review the results before anything is saved. The interesting part is not OCR by itself. It is designing confidence, review, and staged value into a sensitive healthcare workflow.</p>
+            <h3 class="project-title">A family health record system where AI helps structure the past, not just read one document</h3>
+            <p class="project-summary">Vitae helps families upload prescriptions and lab reports, review AI-structured outputs, store them as a long-term health record, and build context across older prescriptions over time. The product challenge is not just OCR accuracy. It is designing a trustworthy repository where extraction, review, storage, and later analysis all work together in a sensitive healthcare workflow.</p>
             <div class="impact-list">
               <span class="impact-chip">AI classification + extraction</span>
               <span class="impact-chip">Confidence-aware review</span>
-              <span class="impact-chip">Pre-auth to post-auth handoff</span>
+              <span class="impact-chip">Long-term document repository</span>
+              <span class="impact-chip">Historical prescription context</span>
             </div>
           </div>
         </a>
 
         <a class="project" href="projects/andiamo.html">
-          <div class="project-meta">Andiamo<br />Consumer / Group coordination</div>
+          <div class="project-meta"><strong>Andiamo</strong>Consumer / Group coordination</div>
           <div class="project-main">
             <h3 class="project-title">A coordination layer for the part of trip planning nobody really owns</h3>
             <p class="project-summary">Andiamo is built around the insight that group trips usually fail before booking starts. The real issue is not itinerary planning - it is coordination, commitment, budget alignment, and decision-making across a group. The product uses deadlines, private budgets, and lightweight social pressure to move a group toward a decision.</p>
@@ -791,15 +827,15 @@
           </div>
         </a>
 
-        <a class="project" href="projects/lumi.html">
-          <div class="project-meta">Lumi<br />Assessment / Auth systems</div>
+        <a class="project" href="projects/remi.html">
+          <div class="project-meta"><strong>Remi</strong>Founder tools / Sales memory</div>
           <div class="project-main">
-            <h3 class="project-title">A simple assessment product that exposed deeper lessons about auth and silent failure</h3>
-            <p class="project-summary">Lumi is a personality and skill assessment app with Google login and a personalised dashboard. What makes it portfolio-worthy is not the quiz itself, but the product and builder lessons behind it: session handling, OAuth context mismatches, broken fallback assumptions, and the danger of failures that look like success.</p>
+            <h3 class="project-title">A founder CRM built around the idea that remembering context matters more than filling a pipeline</h3>
+            <p class="project-summary">Remi is a sales memory system for early-stage founders who do not behave like trained sales teams. It captures post-call context through lightweight inputs, uses AI to structure what mattered, and brings that context back when follow-up time comes. The core product thesis is simple: do not ask founders to become better at CRM admin, build a system that adapts to how they already work.</p>
             <div class="impact-list">
-              <span class="impact-chip">Google OAuth</span>
-              <span class="impact-chip">Server-rendered session flow</span>
-              <span class="impact-chip">Builder lessons from debugging</span>
+              <span class="impact-chip">Telegram bot capture flow</span>
+              <span class="impact-chip">AI extraction + confirmation</span>
+              <span class="impact-chip">Context-aware follow-up system</span>
             </div>
           </div>
         </a>
@@ -813,6 +849,9 @@
         <div class="section-kicker">Career Arc</div>
         <h2 class="section-title">The path was not linear, which turned out to be useful</h2>
         <p class="section-body">I did not enter product through a neat PM ladder. I moved through technical, commercial, operational, and customer-facing roles first. That is a big part of how I work now.</p>
+        <div class="career-link-row">
+          <a href="resume.html" class="btn-secondary">View full resume</a>
+        </div>
       </div>
 
       <div class="timeline">
@@ -859,32 +898,40 @@
     <div class="section-grid">
       <div class="section-head">
         <div class="section-kicker">How I Work</div>
-        <h2 class="section-title">The operating principles behind the projects</h2>
-        <p class="section-body">Across very different roles, a few habits keep repeating. They matter more to me than polished process theatre.</p>
+        <h2 class="section-title">How I work when adoption and execution both matter</h2>
+        <p class="section-body">This section is meant to explain the habits behind my product work. I have rewritten it to be more concrete: less PM language, more about how I actually operate when teams, workflows, and rollout pressure are real.</p>
       </div>
 
       <div class="principles">
         <div class="principle">
           <div class="principle-num">01</div>
           <div>
-            <h3 class="principle-title">Stay close to the messy part</h3>
-            <p class="principle-body">I do not like product work that stops at slides, requirements, or launch announcements. The valuable part usually appears later, when real users get confused, internal teams improvise around gaps, and the system starts showing where it is brittle.</p>
+            <h3 class="principle-title">Start where the workflow breaks</h3>
+            <p class="principle-body">I usually begin with the operational choke point: where a user gets stuck, where a team creates workarounds, or where adoption quietly drops. That gives me a better product brief than starting from feature ideas.</p>
           </div>
         </div>
 
         <div class="principle">
           <div class="principle-num">02</div>
           <div>
-            <h3 class="principle-title">Translate between worlds</h3>
-            <p class="principle-body">A lot of my leverage comes from being able to move between technical detail, business logic, and user reality without treating them as separate conversations. That usually makes decisions faster and less political.</p>
+            <h3 class="principle-title">Treat rollout as product work</h3>
+            <p class="principle-body">I do not separate launch from product. Setup friction, internal handoffs, onboarding quality, and time-to-value are part of the product surface, especially in B2B and enterprise environments.</p>
           </div>
         </div>
 
         <div class="principle">
           <div class="principle-num">03</div>
           <div>
-            <h3 class="principle-title">Use AI for execution, not just exploration</h3>
-            <p class="principle-body">I am interested in AI when it helps produce better work: sharper thinking, faster iteration, clearer communication, and actual prototypes. I care less about the theatre of using new tools and more about whether they reduce friction in a meaningful way.</p>
+            <h3 class="principle-title">Make tradeoffs visible early</h3>
+            <p class="principle-body">A lot of execution gets delayed because teams are talking past each other. I try to make the real constraint obvious early - speed, scope, usability, ops load, or technical complexity - so the decision can be made cleanly.</p>
+          </div>
+        </div>
+
+        <div class="principle">
+          <div class="principle-num">04</div>
+          <div>
+            <h3 class="principle-title">Use AI where it shortens the loop</h3>
+            <p class="principle-body">I use AI when it improves execution: faster synthesis, clearer specs, quicker prototyping, sharper iteration. I am less interested in AI as positioning and more in whether it removes time and ambiguity from the work.</p>
           </div>
         </div>
       </div>
