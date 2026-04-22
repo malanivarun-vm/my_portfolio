@@ -368,8 +368,6 @@ img {
 .detail-header {
   display: grid;
   gap: 0.9rem;
-  max-width: 52rem;
-  margin-bottom: 3rem;
 }
 
 .detail-title {
@@ -387,6 +385,18 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(16rem, 0.95fr);
   gap: clamp(2rem, 4vw, 4rem);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.detail-left {
+  display: grid;
+  align-content: start;
+  gap: 2rem;
 }
 
 .detail-main,
@@ -420,10 +430,17 @@ img {
   margin-bottom: 0.6rem;
 }
 
+.side-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @media (max-width: 920px) {
   .hero,
   .section-grid,
-  .detail-grid {
+  .detail-grid,
+  .detail-layout {
     grid-template-columns: 1fr;
   }
 

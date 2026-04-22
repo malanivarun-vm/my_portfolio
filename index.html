@@ -221,40 +221,6 @@
     color: var(--ink);
   }
 
-  .hero-left-footer {
-    display: flex;
-    align-items: stretch;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-    animation-delay: 0.65s;
-  }
-
-  .stat-item {
-    min-width: 8rem;
-  }
-
-  .stat-num {
-    font-family: "Bricolage Grotesque", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .stat-label {
-    margin-top: 0.2rem;
-    color: var(--ink-muted);
-    font-size: 0.72rem;
-    letter-spacing: 0.03em;
-  }
-
-  .stat-divider {
-    width: 1px;
-    min-height: 2rem;
-    background: var(--border);
-  }
-
   .hero-right {
     background: var(--surface);
   }
@@ -287,7 +253,7 @@
   }
 
   .what-i-do-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.75rem;
   }
 
   .pillars {
@@ -297,7 +263,7 @@
   }
 
   .pillar {
-    padding: 1.4rem 0;
+    padding: 1rem 0;
   }
 
   .pillar + .pillar,
@@ -392,7 +358,7 @@
   }
 
   .section {
-    padding: clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+    padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3.5rem);
     border-bottom: 1px solid var(--border);
   }
 
@@ -416,7 +382,7 @@
   }
 
   .section-body {
-    max-width: 24rem;
+    max-width: 28rem;
     font-size: 0.96rem;
   }
 
@@ -542,7 +508,7 @@
     gap: 0.95rem 1rem;
     padding: 1.35rem;
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: 0.65rem;
     background: linear-gradient(180deg, var(--surface) 0%, var(--white) 100%);
   }
 
@@ -646,9 +612,13 @@
       min-height: auto;
     }
 
+    .hero-right {
+      display: none;
+    }
+
     .hero-left {
       border-right: none;
-      border-bottom: 1px solid var(--border);
+      border-bottom: none;
     }
 
     .hero-headline {
@@ -670,14 +640,6 @@
     .hero-left-photo img {
       width: 96px;
       height: 118px;
-    }
-
-    .hero-left-footer {
-      gap: 1rem;
-    }
-
-    .stat-divider {
-      display: none;
     }
 
     .hero-headline {
@@ -731,22 +693,6 @@
         </div>
       </div>
 
-      <div class="hero-left-footer">
-        <div class="stat-item">
-          <div class="stat-num">8+</div>
-          <div class="stat-label">years across four domains</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-num">5</div>
-          <div class="stat-label">enterprise rollouts led</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <div class="stat-num">85%</div>
-          <div class="stat-label">feature adoption achieved</div>
-        </div>
-      </div>
     </div>
 
     <div class="hero-right">
@@ -850,7 +796,7 @@
         <h2 class="section-title">The path was not linear, which turned out to be useful</h2>
         <p class="section-body">I did not enter product through a neat PM ladder. I moved through technical, commercial, operational, and customer-facing roles first. That is a big part of how I work now.</p>
         <div class="career-link-row">
-          <a href="resume.html" class="btn-secondary">View full resume</a>
+          <a href="resume.html" class="btn-primary">View full resume</a>
         </div>
       </div>
 
@@ -899,7 +845,7 @@
       <div class="section-head">
         <div class="section-kicker">How I Work</div>
         <h2 class="section-title">How I work when adoption and execution both matter</h2>
-        <p class="section-body">This section is meant to explain the habits behind my product work. I have rewritten it to be more concrete: less PM language, more about how I actually operate when teams, workflows, and rollout pressure are real.</p>
+        <p class="section-body">Four patterns that show up consistently across roles, domains, and the products I build.</p>
       </div>
 
       <div class="principles">
@@ -907,31 +853,23 @@
           <div class="principle-num">01</div>
           <div>
             <h3 class="principle-title">Start where the workflow breaks</h3>
-            <p class="principle-body">I usually begin with the operational choke point: where a user gets stuck, where a team creates workarounds, or where adoption quietly drops. That gives me a better product brief than starting from feature ideas.</p>
+            <p class="principle-body">I usually begin with the operational choke point: where a user gets stuck, where a team creates workarounds, or where adoption quietly drops. At Smartstaff, that meant starting with onboarding drop-off rather than feature requests — the real friction was in the first 72 hours, not the roadmap.</p>
           </div>
         </div>
 
         <div class="principle">
           <div class="principle-num">02</div>
           <div>
-            <h3 class="principle-title">Treat rollout as product work</h3>
-            <p class="principle-body">I do not separate launch from product. Setup friction, internal handoffs, onboarding quality, and time-to-value are part of the product surface, especially in B2B and enterprise environments.</p>
+            <h3 class="principle-title">Make tradeoffs visible early</h3>
+            <p class="principle-body">A lot of execution gets delayed because teams are talking past each other. With Remi, that meant naming early that a Telegram bot was a lower-fidelity surface than a native app, and deciding that testing capture behaviour cheaply was worth the constraint. Better to make that trade explicit than discover it at the wrong time.</p>
           </div>
         </div>
 
         <div class="principle">
           <div class="principle-num">03</div>
           <div>
-            <h3 class="principle-title">Make tradeoffs visible early</h3>
-            <p class="principle-body">A lot of execution gets delayed because teams are talking past each other. I try to make the real constraint obvious early - speed, scope, usability, ops load, or technical complexity - so the decision can be made cleanly.</p>
-          </div>
-        </div>
-
-        <div class="principle">
-          <div class="principle-num">04</div>
-          <div>
             <h3 class="principle-title">Use AI where it shortens the loop</h3>
-            <p class="principle-body">I use AI when it improves execution: faster synthesis, clearer specs, quicker prototyping, sharper iteration. I am less interested in AI as positioning and more in whether it removes time and ambiguity from the work.</p>
+            <p class="principle-body">In practice: AI-structured extraction in Remi, confidence-aware review in Vitae, and Claude for synthesis and spec drafting in daily work. Not as a shortcut, but as a reduction in round-trip time between idea and tested output.</p>
           </div>
         </div>
       </div>

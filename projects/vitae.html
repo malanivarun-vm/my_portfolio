@@ -15,19 +15,20 @@
       <a class="back-link" href="../index.html#work">← Back</a>
     </nav>
 
+    <div class="detail-layout">
+      <div class="detail-left">
     <header class="detail-header">
       <div class="detail-label">Vitae · healthcare PWA</div>
       <h1 class="detail-title">Helping families make sense of medical documents with AI</h1>
       <p class="detail-copy">Vitae is a PWA where users upload prescriptions or lab reports, AI structures the contents, and the product asks the user to review before anything becomes permanent. The product challenge is not just extraction accuracy. It is designing trust into every handoff.</p>
       <div class="detail-meta">
-        <span class="tag tag-accent">Section 2 owner</span>
+        <span class="tag tag-accent">Team build · PWA</span>
         <span class="tag">Next.js</span>
         <span class="tag">OpenRouter / Gemini</span>
         <span class="tag">Supabase</span>
       </div>
     </header>
 
-    <div class="detail-grid">
       <div class="detail-main">
         <section class="detail-panel">
           <div class="detail-label">What I built</div>
@@ -37,12 +38,8 @@
 
         <section class="detail-panel">
           <div class="detail-label">Why it matters</div>
-          <h2 class="detail-subtitle">AI is useful here only if the product stays honest about uncertainty</h2>
-          <ul class="detail-list">
-            <li>Classify first, then extract, so the wrong schema is never forced onto the wrong document.</li>
-            <li>Show confidence as part of the UI, not a hidden model artifact.</li>
-            <li>Delay auth until after the user sees value, then carry state safely through the handoff.</li>
-          </ul>
+          <h2 class="detail-subtitle">AI is useful here only if it stays honest about what it does not know</h2>
+          <p class="detail-copy">The product insight behind Vitae is not the extraction itself. Medical documents require trust in two directions: the user needs to trust that the AI read the document correctly, and the user needs to trust that their data is stored safely. The confidence-aware review UI handles the first — low-confidence fields are surfaced explicitly so the user knows what to verify. LocalStorage before auth handles the second — the user sees extracted value before being asked to create an account. Every architectural decision in the upload flow was made in service of making trust explicit rather than assumed.</p>
         </section>
 
         <section class="detail-panel">
@@ -51,13 +48,18 @@
           <p class="detail-copy">The most interesting decisions were not model choices. They were about when to trust AI, when to interrupt the user, what data should be editable, and how to avoid implying certainty where the user cannot actually verify a field from memory.</p>
         </section>
       </div>
+      </div><!-- detail-left -->
 
       <aside class="detail-side">
+        <div class="side-screenshot">
+          <img src="screenshots/vitae.png" alt="Vitae app screenshot" />
+        </div>
         <div class="side-block">
-          <div class="link-label">Project link</div>
-          <h3 class="side-title">Available now</h3>
+          <div class="link-label">Project links</div>
+          <h3 class="side-title">Live resources</h3>
           <div class="detail-links">
-            <a class="button-primary" href="https://github.com/aashikvilla/health-assistant" target="_blank" rel="noopener">Open GitHub repo</a>
+            <a class="button-primary" href="https://vitae-health.vercel.app/" target="_blank" rel="noopener">Open live app</a>
+            <a class="button-secondary" href="https://github.com/aashikvilla/health-assistant" target="_blank" rel="noopener">Open GitHub repo</a>
           </div>
         </div>
 
