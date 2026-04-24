@@ -389,8 +389,9 @@ img {
 
 .detail-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
 }
 
 .detail-left {
@@ -399,10 +400,17 @@ img {
   gap: 2rem;
 }
 
-.detail-main,
+.detail-main {
+  display: grid;
+  gap: 1.75rem;
+}
+
 .detail-side {
   display: grid;
   gap: 1.75rem;
+  position: sticky;
+  top: clamp(2rem, 4vw, 3.5rem);
+  align-self: start;
 }
 
 .detail-list {
@@ -430,10 +438,49 @@ img {
   margin-bottom: 0.6rem;
 }
 
+.side-screenshot {
+  overflow: visible;
+}
+
 .side-screenshot img {
-  width: 100%;
+  width: calc(100% + clamp(2rem, 4vw, 3.5rem));
+  margin-right: calc(-1 * clamp(2rem, 4vw, 3.5rem));
+  max-width: none;
   height: auto;
   display: block;
+}
+
+.side-embed {
+  overflow: visible;
+}
+
+.side-embed iframe {
+  width: calc(100% + clamp(2rem, 4vw, 3.5rem));
+  margin-right: calc(-1 * clamp(2rem, 4vw, 3.5rem));
+  max-width: none;
+  height: calc(100vh - 8rem);
+  min-height: 500px;
+  border: none;
+  display: block;
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.work-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.work-more-link:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 920px) {
@@ -452,6 +499,24 @@ img {
   .hero-headline,
   .detail-title {
     max-width: none;
+  }
+
+  .detail-side {
+    position: static;
+  }
+
+  .side-screenshot img {
+    width: 100%;
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .side-embed iframe {
+    width: 100%;
+    margin-right: 0;
+    max-width: 100%;
+    height: 60vh;
+    border-radius: 0.75rem;
   }
 }
 

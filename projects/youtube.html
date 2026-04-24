@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube 2.0 — Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../portfolio-variants.css" />
+</head>
+<body class="detail-page">
+  <main class="detail-shell">
+    <nav class="detail-nav">
+      <a class="back-link" href="../work.html">← Back</a>
+    </nav>
+
+    <div class="detail-layout">
+      <div class="detail-left">
+        <header class="detail-header">
+          <div class="detail-label">YouTube · long-form discovery</div>
+          <h1 class="detail-title">Long-form content on YouTube is not dying. The feed that surfaces it is.</h1>
+          <p class="detail-copy">A PM case study and prototype set addressing YouTube's long-form discovery gap in India's mobile-first market. Built with primary research (171-person survey), full secondary research synthesis, and four live prototypes — each targeting a different leverage point in the same failure loop.</p>
+          <div class="detail-meta">
+            <span class="tag tag-accent">Case study · 4 live prototypes</span>
+            <span class="tag">Consumer product</span>
+            <span class="tag">Discovery systems</span>
+            <span class="tag">India / Mobile</span>
+          </div>
+        </header>
+
+        <div class="detail-main">
+          <section class="detail-panel">
+            <div class="detail-label">Problem</div>
+            <h2 class="detail-subtitle">Users aged 18–34 in India see fewer than 2 relevant long-form learning videos in their first 5 homepage scrolls.</h2>
+            <p class="detail-copy">Long-form still accounts for 70%+ of total YouTube watch time. Gen Z has not rejected it — 51% name it as a favourite format. But 47% of users manually search every session because the homepage does not surface it, 29% of Gen Z sessions end without watching anything, and users now spend an average of 12 minutes per session just finding something to watch — up 60% since 2019.</p>
+            <p class="detail-copy" style="margin-top: 0.75rem;">The problem is not content quality. It is feed design. And it is creating a loop: the homepage stops surfacing long videos → users stop finding them → creators see poor early performance → creators shift effort toward Shorts → the homepage has even less good long-form to show.</p>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Research</div>
+            <h2 class="detail-subtitle">171-person survey, ecosystem teardown, and 27 external sources — with data gaps called out explicitly.</h2>
+            <ul class="detail-list">
+              <li>Primary survey of 171 respondents (250–300 distributed). 59% stop watching long videos because the content feels stretched — not because they lost interest in the topic. The interest is there. The content quality is failing them.</li>
+              <li>Only 32% of users ever discover a long video by just opening the app. The remaining majority have to actively search — making the homepage almost irrelevant for long-form discovery.</li>
+              <li>After watching a Short, only 15% of users actively look for a longer video from the same creator. But 41% say they would watch one if it were easy to find. The demand exists. The pathway does not.</li>
+              <li>Secondary research consolidated: market sizing (YouTube $60B+ revenue, 491M India MAU), device shift (TV 36% of US watch hours and growing), creator economics (long-form $3–6 RPM vs Shorts $0.03–0.07), and a competitor graveyard showing every bolted-on cross-format feature has failed within 2 years.</li>
+              <li>Critical unknown: Shorts → long-form session transition rate has never been disclosed by YouTube. The entire funnel thesis of this PRD rests on an assumption that is explicitly labelled as the #1 hypothesis to validate before scaling any solution.</li>
+            </ul>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Solutions</div>
+            <h2 class="detail-subtitle">Four interventions, each breaking the loop at a different point.</h2>
+            <ul class="detail-list">
+              <li><strong>Deep Dive Tab</strong> — A dedicated feed tab built around declared interests (PM, Finance, Podcasts), ranked by completion rate not view count. No Shorts appear inside it. Deep Picks surfaces quality-ranked content from creators the user does not yet follow — the structural difference from every existing YouTube surface. <a href="https://curious-kernel.lovable.app/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid currentColor; text-decoration: none;">Open prototype →</a></li>
+              <li><strong>Shorts-to-Long Bridge</strong> — A behaviour-triggered bridge card that appears in the Shorts feed after a user watches 3+ Shorts on the same topic to 95% completion. System-level, cross-creator, intent-matched — not a same-channel link like every existing YouTube mechanism. <a href="https://bridge-to-depth.lovable.app/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid currentColor; text-decoration: none;">Open prototype →</a></li>
+              <li><strong>Long-Form Viewing Streak</strong> — A weekly topic-based habit mechanic. Watch 3 qualifying long videos (15 min+, 75% completion) per week per declared category, and the recommendation type evolves: from individual videos → creator playlists → broader category playlists. Framed as personal growth, not platform engagement.</li>
+              <li><strong>Creator Success Suite</strong> — AI tools in YouTube Studio (script, editing, captions, SEO) plus a pre-publish Content Quality Score that penalises padding before a video goes live. The only product point where the platform can influence content quality before it damages viewer trust. <a href="https://youtube-studio-boost.lovable.app/" target="_blank" rel="noopener" style="color: var(--accent); border-bottom: 1px solid currentColor; text-decoration: none;">Open prototype →</a></li>
+            </ul>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Key decisions</div>
+            <h2 class="detail-subtitle">What shaped the design choices across all four solutions.</h2>
+            <ul class="detail-list">
+              <li><strong>No new destinations:</strong> The competitor graveyard is unambiguous — IGTV, Netflix Play Something, Netflix Fast Laughs all failed within 2 years. Every solution here lives inside existing surfaces. The Deep Dive Tab is a navigation tab, not an exit from the homepage. The Bridge lives inside the Shorts feed.</li>
+              <li><strong>Completion rate over view count:</strong> Deep Picks ranks content by completion rate and rewatch signals, not popularity. High view count is a popularity signal. Completion rate is a quality signal. For long-form these two frequently conflict, and every existing YouTube surface optimises for the wrong one.</li>
+              <li><strong>Explicit assumption labelling:</strong> The Shorts → long-form session transition rate is the most commercially important metric in the PRD — and entirely unverified. The solution is designed to test this assumption, not assume it is true. Risk controls are built into the Bridge: if Shorts session length drops more than 5% in A/B testing, bridge card frequency is reduced before any broader rollout.</li>
+              <li><strong>Supply and demand together:</strong> Solutions 1–3 address viewer-side discovery friction. Solution 4 addresses creator-side supply incentives. Solving only one side of the market produces a half-fix — creators stop making long videos if discovery stays unpredictable, regardless of how well the feed surfaces them.</li>
+            </ul>
+          </section>
+        </div>
+      </div><!-- detail-left -->
+
+      <aside class="detail-side">
+        <div class="side-embed">
+          <iframe
+            src="https://curious-kernel.lovable.app/"
+            title="YouTube Deep Dive Tab — live prototype"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Live prototypes</div>
+          <h3 class="side-title">Four solutions, four builds</h3>
+          <div class="detail-links">
+            <a class="button-primary" href="https://curious-kernel.lovable.app/" target="_blank" rel="noopener">Deep Dive Tab</a>
+            <a class="button-secondary" href="https://bridge-to-depth.lovable.app/" target="_blank" rel="noopener">Shorts-to-Long Bridge</a>
+            <a class="button-secondary" href="https://youtube-studio-boost.lovable.app/" target="_blank" rel="noopener">Creator Success Suite</a>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Context</div>
+          <p class="note">Case competition: Rethink PM Cohort, Week 2. Scope: India, YouTube mobile app, long-form content (10+ min), users 18–34. Deliverables: full PRD, 171-person primary survey, secondary research synthesis across 27 sources, four Lovable prototypes.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

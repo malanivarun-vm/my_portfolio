@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="portfolio-variants.css" />
+  <style>
+    .work-page {
+      padding: clamp(2rem, 4vw, 3.5rem);
+      width: min(100%, 88rem);
+      margin: 0 auto;
+    }
+
+    .work-page-header {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 40rem;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+      padding-bottom: clamp(2rem, 4vw, 3rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-page-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .work-page-desc {
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-size: 1rem;
+      max-width: 36rem;
+    }
+
+    .work-categories {
+      display: grid;
+      gap: 3.5rem;
+    }
+
+    .work-category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-category-label {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .work-list {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: minmax(11rem, 14rem) minmax(0, 1fr);
+      gap: 1.25rem 2rem;
+      padding-top: 0.3rem;
+    }
+
+    .project + .project {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .project[href] {
+      text-decoration: none;
+      color: inherit;
+      display: grid;
+    }
+
+    .project[href]:hover .project-title {
+      color: var(--accent);
+    }
+
+    .project-meta {
+      align-self: start;
+      font-size: 0.72rem;
+      color: var(--ink);
+      line-height: 1.75;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      background: linear-gradient(180deg, oklch(99% 0.002 85) 0%, oklch(97.6% 0.01 278) 100%);
+      box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.85);
+    }
+
+    .project-meta strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+      color: var(--accent);
+    }
+
+    .project-main {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .project-title {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(1.35rem, 2.2vw, 2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      max-width: 20ch;
+    }
+
+    .project-summary {
+      color: var(--ink-mid);
+      line-height: 1.75;
+      font-size: 0.97rem;
+      max-width: 42rem;
+    }
+
+    .impact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .impact-chip {
+      padding: 0.48rem 0.78rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink-mid);
+      font-size: 0.76rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 640px) {
+      .project {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="work-page">
+      <nav class="detail-nav">
+        <a class="back-link" href="index.html">← Back</a>
+      </nav>
+
+      <header class="work-page-header">
+        <div class="detail-label">All Work</div>
+        <h1 class="work-page-title">Products, builds, and case studies</h1>
+        <p class="work-page-desc">Everything I have shipped or worked through — from side products built end-to-end to PM case studies grounded in original research and live prototypes.</p>
+      </header>
+
+      <div class="work-categories">
+
+        <div class="work-category">
+          <div class="work-category-header">
+            <div class="work-category-label">Products I've built</div>
+          </div>
+          <div class="work-list">
+
+            <a class="project" href="projects/vitae.html">
+              <div class="project-meta"><strong>Vitae</strong>Healthcare / Family records</div>
+              <div class="project-main">
+                <h2 class="project-title">A family health record system where AI helps structure the past, not just read one document</h2>
+                <p class="project-summary">Vitae helps families upload prescriptions and lab reports, review AI-structured outputs, store them as a long-term health record, and build context across older prescriptions over time. The product challenge is not just OCR accuracy — it is designing a trustworthy repository where extraction, review, storage, and later analysis all work together in a sensitive healthcare workflow.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">AI classification + extraction</span>
+                  <span class="impact-chip">Confidence-aware review</span>
+                  <span class="impact-chip">Long-term document repository</span>
+                  <span class="impact-chip">Historical prescription context</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project" href="projects/andiamo.html">
+              <div class="project-meta"><strong>Andiamo</strong>Consumer / Group coordination</div>
+              <div class="project-main">
+                <h2 class="project-title">A coordination layer for the part of trip planning nobody really owns</h2>
+                <p class="project-summary">Andiamo is built around the insight that group trips usually fail before booking starts. The real issue is not itinerary planning — it is coordination, commitment, budget alignment, and decision-making across a group. The product uses deadlines, private budgets, and lightweight social pressure to move a group toward a decision.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">Commitment-first flow</span>
+                  <span class="impact-chip">Budget privacy by design</span>
+                  <span class="impact-chip">WhatsApp-compatible sharing</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project" href="projects/remi.html">
+              <div class="project-meta"><strong>Remi</strong>Founder tools / Sales memory</div>
+              <div class="project-main">
+                <h2 class="project-title">A founder CRM built around the idea that remembering context matters more than filling a pipeline</h2>
+                <p class="project-summary">Remi is a sales memory system for early-stage founders who do not behave like trained sales teams. It captures post-call context through lightweight inputs, uses AI to structure what mattered, and brings that context back when follow-up time comes. The core thesis: do not ask founders to become better at CRM admin — build a system that adapts to how they already work.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">Telegram bot capture flow</span>
+                  <span class="impact-chip">AI extraction + confirmation</span>
+                  <span class="impact-chip">Context-aware follow-up system</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project" href="projects/lumi.html">
+              <div class="project-meta"><strong>Lumi</strong>Assessment / Growth tools</div>
+              <div class="project-main">
+                <h2 class="project-title">A personality and skill assessment app — and a lesson in where systems complexity hides</h2>
+                <p class="project-summary">Lumi is a personality and skill assessment app with Google login, personalised results, and a dashboard. The visible product is clean. The harder part was making authentication work reliably across server-rendered flows without silent failure — a class of bug where the system looks healthy until the next request proves otherwise.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">Google OAuth</span>
+                  <span class="impact-chip">Next.js + Supabase Auth</span>
+                  <span class="impact-chip">Server-rendered session handling</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="work-category">
+          <div class="work-category-header">
+            <div class="work-category-label">Case studies</div>
+          </div>
+          <div class="work-list">
+
+            <a class="project" href="projects/blinkit.html">
+              <div class="project-meta"><strong>Blinkit</strong>Quick commerce / Dark store ops</div>
+              <div class="project-main">
+                <h2 class="project-title">A mobile command layer for Blinkit's dark store managers — built around the insight that peak-hour failure is an information problem</h2>
+                <p class="project-summary">DSM Operational Hub is a case study and live prototype for a real-time decision support tool for Blinkit dark store managers. Primary research identified that during peak hours, the one person with decision authority on the floor has the least real-time information. The product closes that gap — without adding cognitive load to an already chaotic shift.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">Quick commerce ops</span>
+                  <span class="impact-chip">Field research</span>
+                  <span class="impact-chip">Mobile-first</span>
+                  <span class="impact-chip">Live prototype</span>
+                </div>
+              </div>
+            </a>
+
+            <a class="project" href="projects/youtube.html">
+              <div class="project-meta"><strong>YouTube</strong>Consumer / Long-form discovery</div>
+              <div class="project-main">
+                <h2 class="project-title">Long-form content on YouTube is not dying. The feed that surfaces it is.</h2>
+                <p class="project-summary">A full PM case study on YouTube's long-form discovery gap in India's mobile-first market. Built on a 171-person primary survey, secondary research across 27 sources, and four live Lovable prototypes — each targeting a different point in the same failure loop between viewers, creators, and the recommendation feed.</p>
+                <div class="impact-list">
+                  <span class="impact-chip">Primary research</span>
+                  <span class="impact-chip">Discovery systems</span>
+                  <span class="impact-chip">4 live prototypes</span>
+                  <span class="impact-chip">India / Mobile</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>

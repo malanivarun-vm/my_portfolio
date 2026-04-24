@@ -12,56 +12,59 @@
 <body class="detail-page">
   <main class="detail-shell">
     <nav class="detail-nav">
-      <a class="back-link" href="../index.html#work">← Back</a>
+      <a class="back-link" href="../work.html">← Back</a>
     </nav>
 
-    <header class="detail-header">
-      <div class="detail-label">Lumi · assessment app</div>
-      <h1 class="detail-title">A good reminder that product simplicity often hides systems complexity</h1>
-      <p class="detail-copy">Lumi is a personality and skill assessment app with Google login, results access, and a personalised dashboard. The visible product is clean. The harder part was making authentication actually work across server-rendered flows without silent failure.</p>
-      <div class="detail-meta">
-        <span class="tag tag-accent">In development</span>
-        <span class="tag">Google OAuth</span>
-        <span class="tag">Next.js</span>
-        <span class="tag">Supabase Auth</span>
-      </div>
-    </header>
+    <div class="detail-layout">
+      <div class="detail-left">
+        <header class="detail-header">
+          <div class="detail-label">Lumi · assessment app</div>
+          <h1 class="detail-title">A personality and skill assessment app — and a lesson in where systems complexity hides</h1>
+          <p class="detail-copy">Lumi is a personality and skill assessment app with Google login, personalised results, and a dashboard. The visible product is clean. The harder part was making authentication work reliably across server-rendered flows without silent failure — a class of bug where the system looks healthy on the surface until the next request proves otherwise.</p>
+          <div class="detail-meta">
+            <span class="tag tag-accent">In development</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Google OAuth</span>
+            <span class="tag">Supabase Auth</span>
+          </div>
+        </header>
 
-    <div class="detail-grid">
-      <div class="detail-main">
-        <section class="detail-panel">
-          <div class="detail-label">What made it hard</div>
-          <h2 class="detail-subtitle">The dangerous bugs were the ones that looked like success</h2>
-          <p class="detail-copy">A helper built for one runtime context silently swallowed the cookie write needed for OAuth callback handling. The system looked healthy until the dashboard failed to recognize the session on the next request.</p>
-        </section>
+        <div class="detail-main">
+          <section class="detail-panel">
+            <div class="detail-label">What I built</div>
+            <h2 class="detail-subtitle">An assessment flow with Google login, structured results, and a personalised dashboard</h2>
+            <ul class="detail-list">
+              <li>Google OAuth login flow handling both first-time sign-up and returning sessions correctly.</li>
+              <li>Assessment questions mapped to personality and skill dimensions with weighted scoring.</li>
+              <li>Results page presenting dimension scores with interpretation copy tailored per profile.</li>
+              <li>Personalised dashboard accessible after login, pulling the user's assessment history from Supabase.</li>
+            </ul>
+          </section>
 
-        <section class="detail-panel">
-          <div class="detail-label">Key lessons</div>
-          <h2 class="detail-subtitle">This is a build about judgment, not just debugging</h2>
-          <ul class="detail-list">
-            <li>Always ask which runtime context a helper was actually designed for.</li>
-            <li>Missing values and wrong values are different failure modes; fallback logic only covers one of them.</li>
-            <li>When a bug chain gets long, the visible error is usually downstream from the real cause.</li>
-          </ul>
-        </section>
+          <section class="detail-panel">
+            <div class="detail-label">Where it got hard</div>
+            <h2 class="detail-subtitle">The dangerous bugs were the ones that looked like success</h2>
+            <p class="detail-copy">A helper designed for one runtime context silently swallowed the cookie write needed for OAuth callback handling. The auth flow completed without error. The session was written — but not in a form the next server-rendered request could read. The system looked healthy until the dashboard failed to recognise the session on the next page load.</p>
+            <p class="detail-copy" style="margin-top: 0.75rem;">The fix was not a patch — it was understanding which runtime context each helper was designed for and why that mattered for server-rendered flows. Missing values and wrong values are different failure modes. Fallback logic handles one of them. This was the other.</p>
+          </section>
 
-        <section class="detail-panel">
-          <div class="detail-label">Portfolio value</div>
-          <h2 class="detail-subtitle">Useful as a builder story, weaker than Vitae or Andiamo as a flagship</h2>
-          <p class="detail-copy">Lumi works best in the portfolio as evidence of technical judgment and debugging depth. It is less compelling as a core product story than the other two projects, but it adds texture to how I learn and build.</p>
-        </section>
-      </div>
+          <section class="detail-panel">
+            <div class="detail-label">What it shows</div>
+            <h2 class="detail-subtitle">Product instinct applied to system-level debugging</h2>
+            <p class="detail-copy">Lumi is useful in the portfolio not as the most ambitious build, but as evidence of how I approach unexpected system behaviour: trace to root cause, understand the class of problem, fix the underlying condition rather than the visible symptom. When a bug chain gets long, the visible error is almost always downstream from the real cause.</p>
+          </section>
+        </div>
+      </div><!-- detail-left -->
 
       <aside class="detail-side">
-        <div class="side-block">
-          <div class="link-label">Project link</div>
-          <h3 class="side-title">Not wired yet</h3>
-          <p class="note">The notes confirm a Vercel deployment exists, but the public URL has not been added cleanly enough to expose here yet. When you are ready, this block should carry the live link.</p>
+        <div class="side-screenshot">
+          <img src="screenshots/lumi.png" alt="Lumi app screenshot" />
         </div>
 
         <div class="side-block">
-          <div class="link-label">Good use in portfolio</div>
-          <p class="note">Best presented as a “what building taught me” project, not as the main product proof item.</p>
+          <div class="link-label">Current state</div>
+          <h3 class="side-title">In development</h3>
+          <p class="note">Assessment flow, Google login, and personalised dashboard working end-to-end. Deployment in progress — live link will be added here when ready.</p>
         </div>
       </aside>
     </div>

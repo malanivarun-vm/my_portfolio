@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blinkit DSM Hub — Varun Malani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../portfolio-variants.css" />
+</head>
+<body class="detail-page">
+  <main class="detail-shell">
+    <nav class="detail-nav">
+      <a class="back-link" href="../work.html">← Back</a>
+    </nav>
+
+    <div class="detail-layout">
+      <div class="detail-left">
+        <header class="detail-header">
+          <div class="detail-label">Blinkit · DSM Operational Hub</div>
+          <h1 class="detail-title">The data exists inside Blinkit's dark stores. The visibility does not.</h1>
+          <p class="detail-copy">DSM Operational Hub is a mobile command layer for Blinkit dark store managers during the 6–10 PM peak window. Built as part of a PM case competition, the product emerged from field research with one core finding: the person with the most decision authority on the floor has the least real-time information. This product closes that gap.</p>
+          <div class="detail-meta">
+            <span class="tag tag-accent">Case study · Live prototype</span>
+            <span class="tag">Quick commerce</span>
+            <span class="tag">Dark store ops</span>
+            <span class="tag">Mobile-first</span>
+          </div>
+        </header>
+
+        <div class="detail-main">
+          <section class="detail-panel">
+            <div class="detail-label">Problem</div>
+            <h2 class="detail-subtitle">Peak-hour failure is not a staffing or inventory problem. It is an information asymmetry problem.</h2>
+            <p class="detail-copy">India's quick commerce model runs on a 10–15 minute delivery promise. During peak hours (6–10 PM), order volume spikes 30–50% above baseline. A high-demand Bengaluru store processes 1,200–2,000 orders per day — each with an internal budget of ~2.5–3 minutes for pick, pack, and handoff before the clock becomes the rider's problem.</p>
+            <p class="detail-copy" style="margin-top: 0.75rem;">Through field observation and interviews with dark store operations professionals, we identified two specific failure moments: pre-peak preparation failures caused by planogram mismatches (pickers sent to bins where items do not physically exist), and real-time blindness during the peak window itself. The Dark Store Manager — the only person with decision authority on the floor — had no live signal layer. Their tool showed aggregate counts, not causes, picker locations, or bottleneck types. When something went wrong, they found out when a rider complained at the counter. By then, the intervention window was gone.</p>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Research</div>
+            <h2 class="detail-subtitle">Primary research, not assumptions: 40% of peak hour spent physically gathering information that should be digital.</h2>
+            <ul class="detail-list">
+              <li>Field observation during a peak window — DSMs spend ~40% of the hour physically walking the floor to understand what is happening instead of acting on it.</li>
+              <li>Anonymous interviews with quick-commerce ops professionals confirmed that the existing Nexus/Partners dashboard is used primarily for post-hoc analysis, not real-time intervention.</li>
+              <li>Structured pain-point scoring across manager workflow stages. Real-time picker visibility scored a 3.7 importance-satisfaction gap (importance: 4.9, satisfaction: 1.2) — the highest of any pain point identified.</li>
+              <li>Secondary research: Blinkit operational model teardown, industry benchmarking across Zepto and Swiggy Instamart, and operational math validation (picker productivity, the 10-day learning curve for new hires, cascading cost of a single planogram mismatch).</li>
+            </ul>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Solution</div>
+            <h2 class="detail-subtitle">Three modes, each mapped to a distinct phase of the DSM's day.</h2>
+            <p class="detail-copy">The product operates in three modes, not one monolithic dashboard. Each mode is designed around a specific decision context:</p>
+            <ul class="detail-list" style="margin-top: 0.75rem;">
+              <li><strong>Prep Mode (4–6 PM):</strong> Planogram mismatch alerts surfaced before peak starts, so the picker never arrives at an empty bin at 7 PM. Staff attendance tracker and put-away completion status complete the pre-peak picture.</li>
+              <li><strong>Ops Mode (6–10 PM):</strong> A three-tab command centre. Tab 1 shows active orders as cards coloured by SLA countdown (not order age — the critical design distinction). Each card shows the bottleneck type and surfaces a one-tap nudge to the picker. Tab 2 shows pending queue depth before it becomes active load — the number that tells the DSM the pressure coming before it arrives. Tab 3 shows picker workforce: experience level, current order, session performance vs. store average. The Dislodge button — Blinkit's kill switch that pauses incoming orders — is surfaced explicitly here with a confirmation gate rather than buried as an emergency measure.</li>
+              <li><strong>Hand-Off Mode (end of shift):</strong> Auto-generated shift summary from session data. The next DSM walks in with context, not a verbal briefing with half the information lost.</li>
+            </ul>
+          </section>
+
+          <section class="detail-panel">
+            <div class="detail-label">Key decisions</div>
+            <h2 class="detail-subtitle">Five decisions that shaped the product, each with an explicit trade-off.</h2>
+            <ul class="detail-list">
+              <li><strong>Mobile, not tablet-mounted:</strong> The DSM moves. A tablet-mounted dashboard is a stationary tool. Designing for the device already in their pocket removes a hardware dependency — at the cost of tighter information density constraints.</li>
+              <li><strong>SLA countdown, not order age:</strong> Order age is irrelevant. What matters is time remaining before a breach. Tying card colour to SLA countdown directs the DSM's attention to the most operationally critical order, not the oldest one. Trade-off: requires accurate SLA data from the backend — latency degrades the signal.</li>
+              <li><strong>Template nudges, not freeform messages:</strong> At peak, a DSM cannot compose a message. Pre-mapped templates ("Check Bin D-03", "OOS confirmed — substitute approved") reduce the action to one tap. Trade-off: edge cases that do not fit a template still require out-of-band communication.</li>
+              <li><strong>Dislodge surfaced explicitly:</strong> The kill switch already exists in Blinkit's system. Making it a visible, designed button (with a confirmation gate) acknowledges operational reality and ensures the DSM uses it consciously. Trade-off: surfacing the option may lower the psychological barrier to its use — mitigated by designing every other feature to make it unnecessary.</li>
+              <li><strong>Shift handoff as first-class mode:</strong> Field research confirmed that post-shift context transfer is almost entirely verbal, with significant information loss. An auto-generated summary costs nothing to produce from session data and eliminates a known reliability gap.</li>
+            </ul>
+          </section>
+        </div>
+      </div><!-- detail-left -->
+
+      <aside class="detail-side">
+        <div class="side-embed">
+          <iframe
+            src="https://blinkit-command-hub.vercel.app/"
+            title="Blinkit DSM Operational Hub — live prototype"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Project links</div>
+          <h3 class="side-title">Live resources</h3>
+          <div class="detail-links">
+            <a class="button-primary" href="https://blinkit-command-hub.vercel.app/" target="_blank" rel="noopener">Open live prototype</a>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <div class="link-label">Context</div>
+          <p class="note">Case competition: Rethink PM Cohort, Week 3. Role: Product Lead — discovery, solution PRD, prototype direction. Team: Swag Wale. Deliverables: Discovery PRD, Solution PRD, live Vercel prototype, LinkedIn post.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
