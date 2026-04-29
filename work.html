@@ -81,6 +81,12 @@
       text-decoration: none;
       color: inherit;
       display: grid;
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease;
+    }
+
+    .project[href]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
     }
 
     .project[href]:hover .project-title {
@@ -117,6 +123,7 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
       max-width: 20ch;
+      transition: color 0.2s ease;
     }
 
     .project-summary {
