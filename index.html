@@ -96,6 +96,11 @@
     color: var(--ink-muted);
     margin-bottom: var(--space-lg);
   }
+  
+  .hero-nav {
+    display: flex;
+    gap: var(--space-md);
+  }
 
   .hero-left-photo {
     opacity: 0;
@@ -672,12 +677,15 @@
     }
 
     .hero-right {
-      display: none;
+      display: block;
+      border-top: 1px solid var(--border);
     }
 
     .hero-left {
       border-right: none;
       border-bottom: none;
+      min-height: auto;
+      padding-bottom: 0;
     }
 
     .hero-headline {
