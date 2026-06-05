@@ -254,6 +254,12 @@ img { max-width: 100%; display: block; }
   font-family: var(--fm); font-size: 0.57rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
 }
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
+.chip {
+  font-family: var(--fm); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.32rem 0.75rem; border: 1px solid var(--accent); color: var(--accent);
+}
 .build-list {
   list-style: none; display: grid; gap: 0.45rem;
   margin-bottom: 1.75rem; max-width: 54rem;
@@ -528,10 +534,11 @@ footer {
             <span class="btag">PWA</span>
           </div>
           <p class="build-desc">A family health record system where AI helps structure the past, not just read one document. Upload prescriptions and lab reports, review AI-structured outputs, and build context across older prescriptions over time. The product challenge is not OCR accuracy — it is designing a trustworthy repository where extraction, review, storage, and analysis all work together in a sensitive healthcare workflow.</p>
-          <div class="metrics">
-            <div class="metric"><div class="m-val">AI</div><div class="m-lbl">Classification + extraction</div></div>
-            <div class="metric"><div class="m-val">Trust</div><div class="m-lbl">Confidence-aware review</div></div>
-            <div class="metric"><div class="m-val">Long-term</div><div class="m-lbl">Document repository</div></div>
+          <div class="chip-row">
+            <span class="chip">AI classification + extraction</span>
+            <span class="chip">Confidence-aware review</span>
+            <span class="chip">Long-term document repository</span>
+            <span class="chip">Historical prescription context</span>
           </div>
           <ul class="build-list">
             <li>Upload flow for prescriptions and lab reports with AI classification</li>
@@ -558,10 +565,10 @@ footer {
             <span class="btag">Deadline-driven</span>
           </div>
           <p class="build-desc">Group trips fail before booking starts — the real issue is commitment, alignment, and budget across a group. Andiamo owns the messy phase before logistics: getting everyone aligned on vibe, destination, budget, and dates. It uses deadlines, private budgets, and lightweight social pressure to move a group toward a decision rather than a stalled chat thread.</p>
-          <div class="metrics">
-            <div class="metric"><div class="m-val">Commit</div><div class="m-lbl">Commitment-first flow</div></div>
-            <div class="metric"><div class="m-val">Private</div><div class="m-lbl">Budget privacy by design</div></div>
-            <div class="metric"><div class="m-val">WA</div><div class="m-lbl">WhatsApp-compatible</div></div>
+          <div class="chip-row">
+            <span class="chip">Commitment-first flow</span>
+            <span class="chip">Budget privacy by design</span>
+            <span class="chip">WhatsApp-compatible sharing</span>
           </div>
           <ul class="build-list">
             <li>Commitment gate before logistics — owns the decision layer, not the booking</li>
@@ -588,10 +595,10 @@ footer {
             <span class="btag">AI Extraction</span>
           </div>
           <p class="build-desc">Early-stage founders do not behave like trained sales teams. Remi captures post-call context through lightweight Telegram inputs, uses AI to structure what mattered, and brings that context back when follow-up time comes. The core thesis: do not ask founders to become better at CRM admin — build a system that adapts to how they already work.</p>
-          <div class="metrics">
-            <div class="metric"><div class="m-val">TG</div><div class="m-lbl">Telegram bot capture</div></div>
-            <div class="metric"><div class="m-val">AI</div><div class="m-lbl">Extraction + confirmation</div></div>
-            <div class="metric"><div class="m-val">Context</div><div class="m-lbl">Context-aware follow-up</div></div>
+          <div class="chip-row">
+            <span class="chip">Telegram bot capture flow</span>
+            <span class="chip">AI extraction + confirmation</span>
+            <span class="chip">Context-aware follow-up system</span>
           </div>
           <ul class="build-list">
             <li>Telegram bot for frictionless post-call capture — no new app in the stack</li>
