@@ -282,18 +282,30 @@ img { max-width: 100%; display: block; }
 .build-link:hover { opacity: 0.7; }
 .more-row { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
 
-/* ── CIRCUIT TRACK ── */
-.circuit-wrap { margin: 2rem 0 1rem; overflow: visible; }
-#circuit-svg { display: block; width: 100%; overflow: visible; }
-.c-shadow { stroke: #D5D3CD; stroke-width: 36; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.c-surface { stroke: #EDECEA; stroke-width: 27; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.c-rline { stroke: var(--accent); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-dasharray: 7 5; opacity: 0.4; }
-.c-dot-pulse { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.3; }
-.c-dot-fill { stroke: #FAFAF8; stroke-width: 2.5; fill: var(--accent); }
-.c-connector { stroke: #C8C6C2; stroke-width: 1; }
-.c-year { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; fill: var(--accent); letter-spacing: 1.2px; }
-.c-role-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; font-weight: 800; fill: var(--ink); }
-.c-org-txt { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: var(--muted); }
+/* ── CAREER TIMELINE ── */
+.career-list { border-top: 1px solid var(--border); }
+.t-item {
+  display: grid; grid-template-columns: 7rem 1fr;
+  gap: 0 2rem; padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.t-year {
+  font-family: var(--fm); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); padding-top: 0.25rem;
+}
+.t-role {
+  font-family: var(--fbc); font-size: 1.15rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 0.25rem;
+}
+.t-org {
+  font-family: var(--fm); font-size: 0.63rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+.t-body {
+  font-size: 0.93rem; line-height: 1.8; color: var(--mid); max-width: 52rem;
+}
 
 /* ── BEYOND WORK ── */
 .beyond-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(2.5rem,5vw,6rem); }
@@ -415,7 +427,7 @@ footer {
 @media (max-width: 960px) {
   #hero { grid-template-columns: 1fr 1fr; }
   .beyond-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .t-node { grid-template-columns: 72px 20px 1fr; gap: 0 1.25rem; }
+  .t-item { grid-template-columns: 5rem 1fr; }
   .build-item { margin-left: 0; padding-left: 1.25rem; }
 }
 @media (max-width: 700px) {
@@ -429,7 +441,7 @@ footer {
   .specs-grid { grid-template-columns: 1fr; }
   .metrics { grid-template-columns: repeat(2,1fr); }
   .build-tagline { display: none; }
-  .t-node { grid-template-columns: 58px 18px 1fr; gap: 0 1rem; }
+  .t-item { grid-template-columns: 1fr; gap: 0.3rem 0; }
   #tweaks-panel { right: 1rem; bottom: 1rem; width: 200px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -619,20 +631,42 @@ footer {
 <!-- CAREER ARC -->
 <section id="career" class="section alt" data-screen-label="Career Arc">
   <div class="s-label">Career Arc</div>
-  <div class="s-title" style="font-size:clamp(2rem,5.5vw,5rem); max-width:none;">The path was not linear, which turned out to be useful</div>
-  <p class="s-desc" style="max-width:none;">5 roles across 4 companies and 3 countries — driven by curiosity more than a plan. Each turn taught me something the previous straight couldn't.</p>
+  <div class="s-title">The path was not linear,<br>which turned out to be useful</div>
+  <p class="s-desc">I did not enter product through a neat PM ladder. I moved through technical, commercial, operational, and customer-facing roles first. That is a big part of how I think now.</p>
 
-  <div class="circuit-wrap">
-    <svg id="circuit-svg" viewBox="0 0 1100 500" xmlns="http://www.w3.org/2000/svg" width="100%" aria-label="Career journey as an F1 circuit track">
-      <!-- S/F line marker -->
-      <line x1="60" y1="235" x2="60" y2="267" stroke="white" stroke-width="3" stroke-dasharray="5 5" />
-      <!-- Track layers -->
-      <path class="c-shadow" d="M 60,250 C 80,250 120,360 160,370 C 200,380 280,380 330,340 C 370,310 400,260 430,210 C 460,170 510,180 550,220 C 590,260 620,330 680,365 C 720,385 780,370 830,330 C 870,295 890,250 900,205 C 915,170 960,185 1000,220 C 1020,238 1035,250 1040,255" />
-      <path class="c-surface" id="circuit-track" d="M 60,250 C 80,250 120,360 160,370 C 200,380 280,380 330,340 C 370,310 400,260 430,210 C 460,170 510,180 550,220 C 590,260 620,330 680,365 C 720,385 780,370 830,330 C 870,295 890,250 900,205 C 915,170 960,185 1000,220 C 1020,238 1035,250 1040,255" />
-      <path class="c-rline" d="M 60,250 C 80,250 120,360 160,370 C 200,380 280,380 330,340 C 370,310 400,260 430,210 C 460,170 510,180 550,220 C 590,260 620,330 680,365 C 720,385 780,370 830,330 C 870,295 890,250 900,205 C 915,170 960,185 1000,220 C 1020,238 1035,250 1040,255" />
-      <!-- Markers injected by JS -->
-      <g id="circuit-markers"></g>
-    </svg>
+  <div class="career-list">
+    <div class="t-item reveal">
+      <div class="t-year">Early</div>
+      <div>
+        <div class="t-role">Application Engineer</div>
+        <div class="t-org">Saint-Gobain Performance Plastics</div>
+        <p class="t-body">Started in a techno-commercial role that mixed engineering, design, testing, pricing, and revenue thinking. That was the first time I realized I was more interested in the whole system than in staying inside one narrow function.</p>
+      </div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-year">Germany</div>
+      <div>
+        <div class="t-role">Pricing and Market Strategy</div>
+        <div class="t-org">Mazda Motor Europe + MBA in Berlin</div>
+        <p class="t-body">Worked on pricing in Cologne while studying business in Berlin. The combination sharpened how I think about market structure, commercial leverage, and how decisions on paper show up in actual customer behavior.</p>
+      </div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-year">Scale-up</div>
+      <div>
+        <div class="t-role">Cross-Functional Operator to Product Manager</div>
+        <div class="t-org">Smartstaff</div>
+        <p class="t-body">Moved through customer success, operations, program management, and product. I revamped the UX, lifted feature adoption to 85%, and reduced enterprise go-live timelines by 30%. That sequence taught me where products fail after launch: rollout, handoff, incentives, and the parts nobody wants to own once the feature is technically done.</p>
+      </div>
+    </div>
+    <div class="t-item reveal">
+      <div class="t-year">Now</div>
+      <div>
+        <div class="t-role">Building with AI</div>
+        <div class="t-org">Independent</div>
+        <p class="t-body">Right now I am investing heavily in better product thinking, structured execution, and practical AI use. The point is not to talk about AI as trend language, but to use it to reduce friction, improve leverage, and build more independently.</p>
+      </div>
+    </div>
   </div>
 
   <div style="margin-top:2.5rem">
