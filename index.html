@@ -56,7 +56,7 @@ img { max-width: 100%; display: block; }
 .nav-links { display: flex; align-items: center; gap: 0.25rem; }
 .nav-link {
   font-family: var(--fm); font-size: 0.62rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted);
+  text-transform: uppercase; color: var(--mid);
   padding: 0.4rem 0.7rem; transition: color 0.15s;
 }
 .nav-link:hover { color: var(--ink); }
@@ -71,7 +71,7 @@ img { max-width: 100%; display: block; }
 
 /* ── HERO ── */
 #hero {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 3fr 2fr;
   padding-top: 60px;
 }
 .hero-left {
@@ -120,23 +120,14 @@ img { max-width: 100%; display: block; }
   padding-bottom: 0.1rem; transition: color 0.15s, border-color 0.15s;
 }
 .btn-ghost:hover { color: var(--ink); border-color: var(--mid); }
-.hero-status {
-  display: flex; align-items: center; gap: 0.5rem;
-  font-family: var(--fm); font-size: 0.62rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--muted);
-}
-.status-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: #22C55E; flex-shrink: 0;
-  animation: pulse 2.5s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
 
 /* ── HERO PHOTO ── */
 .hero-right {
   position: relative; overflow: hidden;
   background: var(--surf);
-  max-height: clamp(600px, 90vh, 920px);
+  max-height: 500px;
+  margin-left: auto;
+  margin-right: clamp(1.5rem, 3vw, 3rem);
   animation: fadeIn 0.9s ease 0.35s both;
 }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
@@ -154,7 +145,7 @@ img { max-width: 100%; display: block; }
 .section { padding: clamp(4rem,7vw,7rem) clamp(2rem,4vw,4rem); }
 .alt { background: var(--surf); }
 .s-label {
-  font-family: var(--fm); font-size: 0.58rem; font-weight: 700;
+  font-family: var(--fm); font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 0.6rem;
   display: flex; align-items: center; gap: 0.6rem;
@@ -192,82 +183,51 @@ img { max-width: 100%; display: block; }
   font-family: var(--fbc); font-size: 1.1rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 0.6rem;
 }
-.spec-body { font-size: 0.87rem; line-height: 1.72; color: var(--muted); }
+.spec-body { font-size: 0.87rem; line-height: 1.72; color: var(--mid); }
 
-/* ── CURRENT BUILDS ── */
-.builds-list { border-top: 1px solid var(--border); }
-.build-item {
-  border-bottom: 1px solid var(--border);
-  border-left: 3px solid transparent;
-  padding-left: 1.5rem; margin-left: -1.5rem;
-  transition: border-left-color 0.2s;
+/* ── CURRENT BUILDS (card grid) ── */
+.builds-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
-.build-item:hover, .build-item.open { border-left-color: var(--accent); }
-.build-header {
-  display: flex; align-items: center; gap: clamp(0.75rem,2vw,1.75rem);
-  padding: 1.5rem 0; cursor: pointer;
-  -webkit-user-select: none; user-select: none;
+.build-card {
+  border: 1px solid var(--border); background: var(--white);
+  display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.build-num {
-  font-family: var(--fm); font-size: 0.58rem; font-weight: 700;
-  letter-spacing: 0.1em; color: var(--accent); flex-shrink: 0;
+.build-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.build-card-img {
+  height: 220px; overflow: hidden; background: var(--surf);
 }
-.build-name {
-  font-family: var(--fbc); font-size: clamp(1.3rem,3vw,2.1rem);
-  font-weight: 800; text-transform: uppercase; letter-spacing: -0.01em;
-  flex-shrink: 0; min-width: 110px; transition: color 0.15s;
+.build-card-img img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  transition: transform 0.4s ease;
 }
-.build-item:hover .build-name, .build-item.open .build-name { color: var(--accent); }
-.build-tagline {
-  font-size: 0.9rem; color: var(--muted); flex: 1;
-  line-height: 1.5; padding: 0 0.5rem;
+.build-card:hover .build-card-img img { transform: scale(1.03); }
+.build-card-body {
+  padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column;
 }
-.build-toggle {
-  font-family: var(--fm); font-size: 1.3rem; color: var(--muted);
-  flex-shrink: 0; width: 28px; text-align: right; line-height: 1;
-  transition: color 0.2s, transform 0.35s cubic-bezier(0.4,0,0.2,1);
-}
-.build-item.open .build-toggle { color: var(--accent); transform: rotate(45deg); }
-.build-body { height: 0; overflow: hidden; transition: height 0.42s cubic-bezier(0.4,0,0.2,1); }
-.build-inner { padding: 0.25rem 0 2.75rem; }
-.build-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-.btag {
-  font-family: var(--fm); font-size: 0.59rem; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 0.3rem 0.7rem; border: 1px solid var(--border); color: var(--muted);
-}
-.btag-hi { border-color: var(--accent); color: var(--accent); }
-.build-desc {
-  font-size: 0.93rem; line-height: 1.8; color: var(--mid);
-  max-width: 54rem; margin-bottom: 1.75rem;
-}
-.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.75rem; }
-.chip {
+.build-card-type {
   font-family: var(--fm); font-size: 0.58rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.32rem 0.75rem; border: 1px solid var(--accent); color: var(--accent);
+  color: var(--muted); margin-bottom: 0.4rem;
 }
-.build-list {
-  list-style: none; display: grid; gap: 0.45rem;
-  margin-bottom: 1.75rem; max-width: 54rem;
+.build-card-name {
+  font-family: var(--fbc); font-size: 1.6rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: -0.01em; line-height: 1;
+  margin-bottom: 0.55rem;
 }
-.build-list li {
-  font-size: 0.9rem; color: var(--mid); line-height: 1.65;
-  padding-left: 1.3rem; position: relative;
+.build-card-desc {
+  font-size: 0.87rem; line-height: 1.65; color: var(--mid);
+  flex: 1; margin-bottom: 1rem;
 }
-.build-list li::before {
-  content: '→'; position: absolute; left: 0;
-  color: var(--accent); font-size: 0.72rem; top: 0.15em;
-}
-.build-link {
-  font-family: var(--fm); font-size: 0.65rem; font-weight: 700;
+.build-card-cta {
+  font-family: var(--fm); font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--accent); border-bottom: 1.5px solid var(--accent);
-  padding-bottom: 0.15rem; display: inline-flex; align-items: center; gap: 0.35rem;
-  transition: opacity 0.15s;
+  color: var(--accent); display: inline-flex; align-items: center; gap: 0.3rem;
+  align-self: flex-start; transition: opacity 0.15s;
 }
-.build-link:hover { opacity: 0.7; }
-.more-row { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.build-card-cta:hover { opacity: 0.7; }
+.build-card-cta.coming-soon { color: var(--muted); cursor: default; pointer-events: none; }
 
 /* ── CAREER TIMELINE ── */
 .career-list { border-top: 1px solid var(--border); }
@@ -313,7 +273,7 @@ img { max-width: 100%; display: block; }
   font-family: var(--fbc); font-size: 1rem; font-weight: 700;
   text-transform: uppercase; margin-bottom: 0.45rem;
 }
-.w-body { font-size: 0.88rem; line-height: 1.72; color: var(--muted); }
+.w-body { font-size: 0.88rem; line-height: 1.72; color: var(--mid); }
 
 /* ── CONTACT ── */
 #contact {
@@ -321,7 +281,7 @@ img { max-width: 100%; display: block; }
   padding: clamp(5rem,9vw,9rem) clamp(2rem,4vw,4rem);
 }
 .c-label {
-  font-family: var(--fm); font-size: 0.58rem; font-weight: 700;
+  font-family: var(--fm); font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 0.75rem;
   display: flex; align-items: center; gap: 0.6rem;
@@ -415,25 +375,24 @@ footer {
   #hero { grid-template-columns: 1fr 1fr; }
   .beyond-grid { grid-template-columns: 1fr; gap: 2rem; }
   .t-item { grid-template-columns: 5rem 1fr; }
-  .build-item { margin-left: 0; padding-left: 1.25rem; }
+  .builds-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 700px) {
   #hero { grid-template-columns: 1fr; }
-  .hero-right { height: 70vw; }
+  .hero-right { height: 70vw; margin-right: 0; }
   .hero-right img { object-position: center 35%; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .hero-ln { font-size: clamp(3rem,14vw,5rem); }
   .specs-grid { grid-template-columns: 1fr; }
-.build-tagline { display: none; }
+  .builds-grid { grid-template-columns: 1fr; }
   .t-item { grid-template-columns: 1fr; gap: 0.3rem 0; }
   #tweaks-panel { right: 1rem; bottom: 1rem; width: 200px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-left, .hero-right { animation: none; opacity: 1; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .status-dot { animation: none; }
 }
 </style>
 </head>
@@ -469,10 +428,6 @@ footer {
       <a class="btn-primary" href="mailto:malanivarun@gmail.com">Get in touch →</a>
       <a class="btn-ghost" href="#work">See my work</a>
     </div>
-    <div class="hero-status">
-      <span class="status-dot"></span>
-      Open to work
-    </div>
   </div>
   <div class="hero-right">
     <img src="varun-headshot.png" alt="Varun Malani" />
@@ -482,7 +437,7 @@ footer {
 <!-- SYSTEM SPECS -->
 <section id="specs" class="section alt" data-screen-label="System Specs">
   <div class="s-label">System Specifications</div>
-  <div class="s-title">Where I spend my time and energy</div>
+  <div class="s-title">Where I like to spend my time and energy</div>
   <div class="specs-grid">
     <div class="spec-card reveal">
       <div class="spec-num">01</div>
@@ -509,107 +464,85 @@ footer {
 
 <!-- CURRENT BUILDS -->
 <section id="work" class="section" data-screen-label="Current Builds">
-  <div class="s-label">Current Builds</div>
-  <div class="s-title">What I'm building now</div>
-  <p class="s-desc">Active products that show how I define problems, use AI in the workflow, and ship end-to-end from problem to working system.</p>
+  <div class="s-label">Products Shipped</div>
+  <div class="s-title">Builds</div>
 
-  <div class="builds-list">
+  <div class="builds-grid">
 
-    <div class="build-item open">
-      <div class="build-header">
-        <span class="build-num">01</span>
-        <span class="build-name">Vitae</span>
-        <span class="build-tagline">A family health record system where AI structures your medical past</span>
-        <span class="build-toggle">+</span>
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/vitae.png" alt="Vitae" />
       </div>
-      <div class="build-body">
-        <div class="build-inner">
-          <div class="build-tags">
-            <span class="btag btag-hi">Healthcare · AI</span>
-            <span class="btag">Next.js</span>
-            <span class="btag">Gemini</span>
-            <span class="btag">Supabase</span>
-            <span class="btag">PWA</span>
-          </div>
-          <p class="build-desc">A family health record system where AI helps structure the past, not just read one document. Upload prescriptions and lab reports, review AI-structured outputs, and build context across older prescriptions over time. The product challenge is not OCR accuracy — it is designing a trustworthy repository where extraction, review, storage, and analysis all work together in a sensitive healthcare workflow.</p>
-          <div class="chip-row">
-            <span class="chip">AI classification + extraction</span>
-            <span class="chip">Confidence-aware review</span>
-            <span class="chip">Long-term document repository</span>
-            <span class="chip">Historical prescription context</span>
-          </div>
-          <ul class="build-list">
-            <li>Upload flow for prescriptions and lab reports with AI classification</li>
-            <li>Low-confidence fields surfaced explicitly so users know exactly what to verify</li>
-            <li>Historical context built across all uploaded documents over time</li>
-          </ul>
-          <a class="build-link" href="projects/vitae.html">View case study →</a>
-        </div>
+      <div class="build-card-body">
+        <div class="build-card-type">PWA</div>
+        <div class="build-card-name">Vitae</div>
+        <p class="build-card-desc">A family health record system where AI structures your medical past</p>
+        <a class="build-card-cta" href="projects/vitae.html">View project →</a>
       </div>
     </div>
 
-    <div class="build-item">
-      <div class="build-header">
-        <span class="build-num">02</span>
-        <span class="build-name">Andiamo</span>
-        <span class="build-tagline">A coordination layer for the part of group travel nobody owns</span>
-        <span class="build-toggle">+</span>
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/judgement.jpeg" alt="Judgement" />
       </div>
-      <div class="build-body">
-        <div class="build-inner">
-          <div class="build-tags">
-            <span class="btag btag-hi">Consumer · Group Coordination</span>
-            <span class="btag">Supabase</span>
-            <span class="btag">Deadline-driven</span>
-          </div>
-          <p class="build-desc">Group trips fail before booking starts — the real issue is commitment, alignment, and budget across a group. Andiamo owns the messy phase before logistics: getting everyone aligned on vibe, destination, budget, and dates. It uses deadlines, private budgets, and lightweight social pressure to move a group toward a decision rather than a stalled chat thread.</p>
-          <div class="chip-row">
-            <span class="chip">Commitment-first flow</span>
-            <span class="chip">Budget privacy by design</span>
-            <span class="chip">WhatsApp-compatible sharing</span>
-          </div>
-          <ul class="build-list">
-            <li>Commitment gate before logistics — owns the decision layer, not the booking</li>
-            <li>Private budgets give the organiser a range without exposing individual amounts</li>
-            <li>WhatsApp treated as infrastructure, not a platform to replace</li>
-          </ul>
-          <a class="build-link" href="projects/andiamo.html">View case study →</a>
-        </div>
+      <div class="build-card-body">
+        <div class="build-card-type">Mobile App</div>
+        <div class="build-card-name">Judgement</div>
+        <p class="build-card-desc">A real-time multiplayer card game for mobile — join a room, bid on tricks, hit your exact score</p>
+        <span class="build-card-cta coming-soon">Coming soon</span>
       </div>
     </div>
 
-    <div class="build-item">
-      <div class="build-header">
-        <span class="build-num">03</span>
-        <span class="build-name">Remi</span>
-        <span class="build-tagline">A founder CRM where remembering context matters more than filling a pipeline</span>
-        <span class="build-toggle">+</span>
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/zepto.jpeg" alt="Don't Blink" />
       </div>
-      <div class="build-body">
-        <div class="build-inner">
-          <div class="build-tags">
-            <span class="btag btag-hi">Founder Tools · Sales Memory</span>
-            <span class="btag">Telegram Bot</span>
-            <span class="btag">AI Extraction</span>
-          </div>
-          <p class="build-desc">Early-stage founders do not behave like trained sales teams. Remi captures post-call context through lightweight Telegram inputs, uses AI to structure what mattered, and brings that context back when follow-up time comes. The core thesis: do not ask founders to become better at CRM admin — build a system that adapts to how they already work.</p>
-          <div class="chip-row">
-            <span class="chip">Telegram bot capture flow</span>
-            <span class="chip">AI extraction + confirmation</span>
-            <span class="chip">Context-aware follow-up system</span>
-          </div>
-          <ul class="build-list">
-            <li>Telegram bot for frictionless post-call capture — no new app in the stack</li>
-            <li>AI structures the context; founder confirms before anything is stored</li>
-            <li>Follow-up surfaces the right context at the right moment</li>
-          </ul>
-          <a class="build-link" href="projects/remi.html">View case study →</a>
-        </div>
+      <div class="build-card-body">
+        <div class="build-card-type">Working Prototype</div>
+        <div class="build-card-name">Don't Blink</div>
+        <p class="build-card-desc">A gaze-endurance game built from Zepto's POV as a response to Blinkit's viral ice cream campaign</p>
+        <a class="build-card-cta" href="https://prototype-smoky-ten.vercel.app" target="_blank" rel="noopener">View project →</a>
+      </div>
+    </div>
+
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/remi.png" alt="Remi" />
+      </div>
+      <div class="build-card-body">
+        <div class="build-card-type">AI App</div>
+        <div class="build-card-name">Remi</div>
+        <p class="build-card-desc">A founder CRM where remembering context matters more than filling a pipeline</p>
+        <a class="build-card-cta" href="projects/remi.html">View project →</a>
+      </div>
+    </div>
+
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/andiamo.png" alt="Andiamo" />
+      </div>
+      <div class="build-card-body">
+        <div class="build-card-type">Web App</div>
+        <div class="build-card-name">Andiamo</div>
+        <p class="build-card-desc">A coordination layer for the part of group travel nobody owns</p>
+        <a class="build-card-cta" href="projects/andiamo.html">View project →</a>
+      </div>
+    </div>
+
+    <div class="build-card">
+      <div class="build-card-img">
+        <img src="projects/screenshots/lumi.png" alt="Lumi" />
+      </div>
+      <div class="build-card-body">
+        <div class="build-card-type">Web App</div>
+        <div class="build-card-name">Lumi</div>
+        <p class="build-card-desc">A skill and personality assessment app for aspiring PMs along with a custom learning path towards becoming technically sound and interview ready</p>
+        <a class="build-card-cta" href="projects/lumi.html">View project →</a>
       </div>
     </div>
 
   </div>
-  <div class="more-row">
+  <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);">
     <a class="btn-ghost" href="work.html">More projects: case studies + other builds →</a>
   </div>
 </section>
@@ -748,49 +681,6 @@ footer {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
-
-  /* ACCORDION */
-  const items = document.querySelectorAll('.build-item');
-
-  function openItem(item) {
-    const body = item.querySelector('.build-body');
-    item.classList.add('open');
-    body.style.height = body.scrollHeight + 'px';
-    body.addEventListener('transitionend', function once() {
-      if (item.classList.contains('open')) body.style.height = 'auto';
-      body.removeEventListener('transitionend', once);
-    });
-  }
-
-  function closeItem(item) {
-    const body = item.querySelector('.build-body');
-    if (!item.classList.contains('open')) return;
-    body.style.height = body.scrollHeight + 'px';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        body.style.height = '0';
-        item.classList.remove('open');
-      });
-    });
-  }
-
-  /* Init heights */
-  items.forEach((item) => {
-    const body = item.querySelector('.build-body');
-    if (item.classList.contains('open')) {
-      body.style.height = 'auto';
-    } else {
-      body.style.height = '0';
-    }
-  });
-
-  items.forEach(item => {
-    item.querySelector('.build-header').addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      items.forEach(it => closeItem(it));
-      if (!isOpen) openItem(item);
-    });
-  });
 
   /* SCROLL REVEALS */
   const obs = new IntersectionObserver((entries) => {
