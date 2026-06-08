@@ -143,6 +143,7 @@ img { max-width: 100%; display: block; }
 
 /* ── SECTION COMMON ── */
 .section { padding: clamp(4rem,7vw,7rem) clamp(2rem,4vw,4rem); }
+#work { background: #EDE8DF; }
 .alt { background: var(--surf); }
 .s-label {
   font-family: var(--fm); font-size: 0.72rem; font-weight: 700;
@@ -189,20 +190,40 @@ img { max-width: 100%; display: block; }
 .builds-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
-.build-card {
-  border: 1px solid var(--border); background: var(--white);
-  display: flex; flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s;
+.build-card-wrap {
+  position: relative;
 }
-.build-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.build-card-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: #D2CBBf;
+  border-radius: 16px;
+  transform: translate(5px, 7px);
+  z-index: 0;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.build-card-wrap:hover::before { transform: translate(9px, 13px); }
+
+.build-card {
+  position: relative; z-index: 1;
+  background: var(--white);
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
 .build-card-img {
   height: 220px; overflow: hidden; background: var(--surf);
+  border-radius: 16px 16px 0 0;
 }
 .build-card-img img {
   width: 100%; height: 100%; object-fit: cover; object-position: top center;
-  transition: transform 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.build-card:hover .build-card-img img { transform: scale(1.03); }
+.build-card:hover .build-card-img img { transform: scale(1.05); }
 .build-card-body {
   padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column;
 }
@@ -469,75 +490,87 @@ footer {
 
   <div class="builds-grid">
 
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/vitae.png" alt="Vitae" />
-      </div>
-      <div class="build-card-body">
-        <div class="build-card-type">PWA</div>
-        <div class="build-card-name">Vitae</div>
-        <p class="build-card-desc">A family health record system where AI structures your medical past</p>
-        <a class="build-card-cta" href="projects/vitae.html">View project →</a>
-      </div>
-    </div>
-
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/judgement.jpeg" alt="Judgement" />
-      </div>
-      <div class="build-card-body">
-        <div class="build-card-type">Mobile App</div>
-        <div class="build-card-name">Judgement</div>
-        <p class="build-card-desc">A real-time multiplayer card game for mobile — join a room, bid on tricks, hit your exact score</p>
-        <span class="build-card-cta coming-soon">Coming soon</span>
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/vitae.png" alt="Vitae" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">PWA</div>
+          <div class="build-card-name">Vitae</div>
+          <p class="build-card-desc">A family health record system where AI structures your medical past</p>
+          <a class="build-card-cta" href="projects/vitae.html">View project →</a>
+        </div>
       </div>
     </div>
 
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/zepto.jpeg" alt="Don't Blink" />
-      </div>
-      <div class="build-card-body">
-        <div class="build-card-type">Working Prototype</div>
-        <div class="build-card-name">Don't Blink</div>
-        <p class="build-card-desc">A gaze-endurance game built from Zepto's POV as a response to Blinkit's viral ice cream campaign</p>
-        <a class="build-card-cta" href="https://prototype-smoky-ten.vercel.app" target="_blank" rel="noopener">View project →</a>
-      </div>
-    </div>
-
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/remi.png" alt="Remi" />
-      </div>
-      <div class="build-card-body">
-        <div class="build-card-type">AI App</div>
-        <div class="build-card-name">Remi</div>
-        <p class="build-card-desc">A founder CRM where remembering context matters more than filling a pipeline</p>
-        <a class="build-card-cta" href="projects/remi.html">View project →</a>
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/judgement.jpeg" alt="Judgement" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">Mobile App</div>
+          <div class="build-card-name">Judgement</div>
+          <p class="build-card-desc">A real-time multiplayer card game for mobile — join a room, bid on tricks, hit your exact score</p>
+          <span class="build-card-cta coming-soon">Coming soon</span>
+        </div>
       </div>
     </div>
 
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/andiamo.png" alt="Andiamo" />
-      </div>
-      <div class="build-card-body">
-        <div class="build-card-type">Web App</div>
-        <div class="build-card-name">Andiamo</div>
-        <p class="build-card-desc">A coordination layer for the part of group travel nobody owns</p>
-        <a class="build-card-cta" href="projects/andiamo.html">View project →</a>
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/zepto.jpeg" alt="Don't Blink" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">Working Prototype</div>
+          <div class="build-card-name">Don't Blink</div>
+          <p class="build-card-desc">A gaze-endurance game built from Zepto's POV as a response to Blinkit's viral ice cream campaign</p>
+          <a class="build-card-cta" href="https://prototype-smoky-ten.vercel.app" target="_blank" rel="noopener">View project →</a>
+        </div>
       </div>
     </div>
 
-    <div class="build-card">
-      <div class="build-card-img">
-        <img src="projects/screenshots/lumi.png" alt="Lumi" />
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/remi.png" alt="Remi" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">AI App</div>
+          <div class="build-card-name">Remi</div>
+          <p class="build-card-desc">A founder CRM where remembering context matters more than filling a pipeline</p>
+          <a class="build-card-cta" href="projects/remi.html">View project →</a>
+        </div>
       </div>
-      <div class="build-card-body">
-        <div class="build-card-type">Web App</div>
-        <div class="build-card-name">Lumi</div>
-        <p class="build-card-desc">A skill and personality assessment app for aspiring PMs along with a custom learning path towards becoming technically sound and interview ready</p>
-        <a class="build-card-cta" href="projects/lumi.html">View project →</a>
+    </div>
+
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/andiamo.png" alt="Andiamo" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">Web App</div>
+          <div class="build-card-name">Andiamo</div>
+          <p class="build-card-desc">A coordination layer for the part of group travel nobody owns</p>
+          <a class="build-card-cta" href="projects/andiamo.html">View project →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="build-card-wrap">
+      <div class="build-card">
+        <div class="build-card-img">
+          <img src="projects/screenshots/lumi.png" alt="Lumi" />
+        </div>
+        <div class="build-card-body">
+          <div class="build-card-type">Web App</div>
+          <div class="build-card-name">Lumi</div>
+          <p class="build-card-desc">A skill assessment app for aspiring PMs along with a customised learning path and streak mechanism</p>
+          <a class="build-card-cta" href="projects/lumi.html">View project →</a>
+        </div>
       </div>
     </div>
 
@@ -720,6 +753,44 @@ footer {
     });
   });
 
+})();
+</script>
+<script>
+(function () {
+  const MAX_TILT_X = 6;
+  const MAX_TILT_Y = 9;
+  const LIFT_Z = 14;
+
+  document.querySelectorAll('.build-card').forEach(card => {
+    let raf;
+
+    card.addEventListener('mousemove', e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const nx = (e.clientX - cx) / (r.width / 2);
+        const ny = (e.clientY - cy) / (r.height / 2);
+        const rotY =  nx * MAX_TILT_Y;
+        const rotX = -ny * MAX_TILT_X;
+
+        const shadowX = -nx * 18;
+        const shadowY = -ny * 12 + 12;
+
+        card.style.transition = 'box-shadow 0.08s, transform 0.08s';
+        card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${LIFT_Z}px)`;
+        card.style.boxShadow = `${shadowX}px ${shadowY}px 48px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.07)`;
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      cancelAnimationFrame(raf);
+      card.style.transition = 'box-shadow 0.45s cubic-bezier(0.23,1,0.32,1), transform 0.45s cubic-bezier(0.23,1,0.32,1)';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  });
 })();
 </script>
 </body>
