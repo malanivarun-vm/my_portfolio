@@ -576,7 +576,7 @@ footer {
 
   </div>
   <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border);">
-    <a class="btn-ghost" href="work.html">More projects: case studies + other builds →</a>
+    <a class="btn-primary" href="work.html">More Projects →</a>
   </div>
 </section>
 
@@ -674,17 +674,10 @@ footer {
 </section>
 
 <footer>
-  <div class="f-copy">Varun Malani · Product Portfolio · 2026</div>
-  <div class="f-copy">Bangalore, India</div>
+  <div class="f-left">Varun Malani · Product Portfolio · 2026</div>
+  <button id="rf84-tease" class="f-easter">You made it to the end. Fancy a drive? 🏎️</button>
+  <div class="f-right">Bangalore, India</div>
 </footer>
-
-<div style="text-align:center; padding: 8px 16px 48px;">
-  <button id="rf84-tease"
-    style="background:none; border:none; cursor:pointer; font:inherit; color:inherit; opacity:.65;"
-    onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.65">
-    You made it to the end. Fancy a drive? 🏎️
-  </button>
-</div>
 <script>
   document.getElementById('rf84-tease').addEventListener('click', async () => {
     (await import('./game/roadfighter.js')).default();
