@@ -204,13 +204,22 @@ export function checkCollision(player, cars) {
   return null;
 }
 
+// Storage access is wrapped: localStorage throws SecurityError in Safari private
+// mode / sandboxed iframes / disabled cookies. Failure = no persistence, never a crash.
+function safeGet(storage, key) {
+  try { return storage?.getItem(key) ?? null; } catch { return null; }
+}
+function safeSet(storage, key, value) {
+  try { storage?.setItem(key, value); } catch { /* persistence unavailable */ }
+}
+
 export class Game {
   // sfx: optional { spin, crash, pickup, gameover } callbacks — wired to AudioFX in the browser.
   constructor({ sfx = {}, storage } = {}) {
     this.sfx = sfx;
     this.storage = storage ?? (typeof localStorage !== 'undefined' ? localStorage : null);
     this.state = 'menu'; // 'menu' | 'playing' | 'gameover'
-    this.highScore = Number(this.storage?.getItem('rf84_highscore') ?? 0) || 0;
+    this.highScore = Number(safeGet(this.storage, 'rf84_highscore') ?? 0) || 0;
     this.reset();
   }
 
@@ -262,7 +271,7 @@ export class Game {
       this.state = 'gameover';
       if (this.score > this.highScore) {
         this.highScore = this.score;
-        this.storage?.setItem('rf84_highscore', String(this.highScore));
+        safeSet(this.storage, 'rf84_highscore', String(this.highScore));
       }
       this.sfx.gameover?.();
     }
@@ -663,6 +672,7 @@ export default async function openRoadFighter({ debugSprites = false } = {}) {
     sprites = await loadSprites(new URL('./cars.png', import.meta.url));
   } catch {
     ctx.fillText('Failed to load — tap ✕ and try again', CONFIG.W / 2, CONFIG.H / 2 + 30);
+    rf84Active = false; // never brick the teaser; ✕ still tears down the overlay
     return;
   }
 
