@@ -500,7 +500,7 @@ class Renderer {
     ctx.globalAlpha = 1;
 
     this.drawHud(game);
-    if (game.state === 'menu') this.drawCard('ROAD FIGHTER \'84',
+    if (game.state === 'menu') this.drawCard('ROAD FIGHTER \'84 REMASTERED',
       [`HIGH SCORE ${game.highScore}`, '', this.isTouch ? 'TAP TO START' : 'PRESS SPACE TO START']);
     if (game.state === 'gameover') this.drawCard('GAME OVER',
       [`SCORE ${game.score}`, `HIGH SCORE ${game.highScore}`, '',
