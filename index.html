@@ -678,6 +678,19 @@ footer {
   <div class="f-copy">Bangalore, India</div>
 </footer>
 
+<div style="text-align:center; padding: 8px 16px 48px;">
+  <button id="rf84-tease"
+    style="background:none; border:none; cursor:pointer; font:inherit; color:inherit; opacity:.65;"
+    onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.65">
+    You made it to the end. Fancy a drive? 🏎️
+  </button>
+</div>
+<script>
+  document.getElementById('rf84-tease').addEventListener('click', async () => {
+    (await import('./game/roadfighter.js')).default();
+  });
+</script>
+
 <!-- TWEAKS PANEL -->
 <div id="tweaks-panel">
   <div class="tp-title">Tweaks</div>
