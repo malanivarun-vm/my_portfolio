@@ -315,7 +315,7 @@ img { max-width: 100%; display: block; }
 }
 .c-body {
   font-size: 0.95rem; line-height: 1.78;
-  color: rgba(255,255,255,0.5); max-width: 36rem; margin-bottom: 2.5rem;
+  color: var(--white); max-width: 36rem; margin-bottom: 2.5rem;
 }
 .c-links { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 .btn-contact {
@@ -674,17 +674,13 @@ footer {
 </section>
 
 <footer>
-  <div class="f-copy">Varun Malani · Product Portfolio · 2026</div>
-  <div class="f-copy">Bangalore, India</div>
-</footer>
-
-<div style="text-align:center; padding: 8px 16px 48px;">
-  <button id="rf84-tease"
-    style="background:none; border:none; cursor:pointer; font:inherit; color:inherit; opacity:.65;"
-    onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.65">
-    You made it to the end. Fancy a drive? 🏎️
+  <div class="f-left">Varun Malani · Product Portfolio · 2026</div>
+  <button id="rf84-tease" class="f-easter">
+    You made it to the end. Fancy a drive?
+    <img src="car photo.jpg" alt="car">
   </button>
-</div>
+  <div class="f-right">Bangalore, India</div>
+</footer>
 <script>
   document.getElementById('rf84-tease').addEventListener('click', async () => {
     (await import('./game/roadfighter.js')).default();

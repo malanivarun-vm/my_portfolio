@@ -500,9 +500,9 @@ class Renderer {
     ctx.globalAlpha = 1;
 
     this.drawHud(game);
-    if (game.state === 'menu') this.drawCard('ROAD FIGHTER \'84 REMASTERED',
+    if (game.state === 'menu') this.drawCard("ROAD FIGHTER '84", 'REMASTERED',
       [`HIGH SCORE ${game.highScore}`, '', this.isTouch ? 'TAP TO START' : 'PRESS SPACE TO START']);
-    if (game.state === 'gameover') this.drawCard('GAME OVER',
+    if (game.state === 'gameover') this.drawCard('GAME OVER', '',
       [`SCORE ${game.score}`, `HIGH SCORE ${game.highScore}`, '',
        this.isTouch ? 'TAP TO DRIVE AGAIN' : 'SPACE — DRIVE AGAIN']);
   }
@@ -529,16 +529,18 @@ class Renderer {
     ctx.textAlign = 'left';
   }
 
-  drawCard(title, lines) {
+  drawCard(title, subtitle, lines) {
     const { ctx } = this;
     ctx.fillStyle = 'rgba(11,14,20,0.78)';
     ctx.fillRect(0, 0, CONFIG.W, CONFIG.H);
     ctx.fillStyle = '#e7ecf5';
     ctx.textAlign = 'center';
     ctx.font = 'bold 30px ui-monospace, monospace';
-    ctx.fillText(title, CONFIG.W / 2, CONFIG.H / 2 - 60);
+    ctx.fillText(title, CONFIG.W / 2, CONFIG.H / 2 - 80);
+    ctx.font = 'bold 22px ui-monospace, monospace';
+    ctx.fillText(subtitle, CONFIG.W / 2, CONFIG.H / 2 - 48);
     ctx.font = '16px ui-monospace, monospace';
-    lines.forEach((l, i) => ctx.fillText(l, CONFIG.W / 2, CONFIG.H / 2 - 10 + i * 28));
+    lines.forEach((l, i) => ctx.fillText(l, CONFIG.W / 2, CONFIG.H / 2 - 4 + i * 28));
     ctx.textAlign = 'left';
   }
 }
