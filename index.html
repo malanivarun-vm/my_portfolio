@@ -342,13 +342,20 @@ img { max-width: 100%; display: block; }
 footer {
   background: var(--dark); border-top: 1px solid rgba(255,255,255,0.07);
   padding: 1.35rem clamp(2rem,4vw,4rem);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.f-copy {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
   font-family: var(--fm); font-size: 0.57rem; font-weight: 700;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.18);
+  letter-spacing: 0.12em; text-transform: uppercase; color: #fff;
 }
+.f-left { text-align: left; }
+.f-right { text-align: right; }
+.f-easter {
+  background: none; border: none; outline: none; cursor: pointer;
+  font: inherit; color: #fff; letter-spacing: inherit;
+  text-align: center; padding: 0; opacity: 0.65; transition: opacity 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.f-easter:hover { opacity: 1; }
+.f-easter img { height: 20px; width: auto; display: block; flex-shrink: 0; }
 
 /* ── TWEAKS PANEL ── */
 #tweaks-panel {
