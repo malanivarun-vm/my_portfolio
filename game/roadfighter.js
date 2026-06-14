@@ -361,14 +361,23 @@ class InputHandler {
     window.addEventListener('blur',
       () => { this.keys.left = this.keys.right = this.keys.accel = false; }, { signal });
 
+    const activePointers = {};
     const bind = (sel, key) => {
       const el = overlay.root.querySelector(sel);
-      const on = e => { e.preventDefault(); this.keys[key] = true; };
-      const off = () => { this.keys[key] = false; };
-      el.addEventListener('pointerdown', on, { signal });
+      el.addEventListener('pointerdown', e => {
+        e.preventDefault();
+        el.setPointerCapture(e.pointerId);
+        activePointers[key] = e.pointerId;
+        this.keys[key] = true;
+      }, { signal });
+      const off = e => {
+        if (activePointers[key] === e.pointerId) {
+          this.keys[key] = false;
+          delete activePointers[key];
+        }
+      };
       el.addEventListener('pointerup', off, { signal });
       el.addEventListener('pointercancel', off, { signal });
-      el.addEventListener('pointerleave', off, { signal });
     };
     bind('.rf84-zone-l', 'left');
     bind('.rf84-zone-r', 'right');
